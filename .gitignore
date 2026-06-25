@@ -16,3 +16,6 @@ __pycache__/
 
 # contesto per Claude Code: solo locale, non pubblicare
 CLAUDE.md
+
+# documenti interni di progetto: solo locale, non pubblicare
+/docs/
