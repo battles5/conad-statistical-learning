@@ -227,6 +227,27 @@ $$
 
 ::::
 
+## Un esempio concreto di $Y = f(X) + \varepsilon$ {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
+
+mettiamoci dei numeri, in stile Conad:
+
+:::: {.columns}
+
+::: {.column width="56%"}
+- $Y$ è la **spesa mensile** del cliente, $X$ il **numero di visite**;
+- la parte sistematica potrebbe essere $f(X) \approx 25 \cdot X$ euro, in media 25 euro a visita;
+- ma due clienti con le stesse 4 visite spendono 92 e 108 euro: la differenza è $\varepsilon$;
+- $\varepsilon$ racchiude tutto ciò che non misuriamo: gusti, promozioni colte, giornata storta.
+:::
+
+::: {.column width="44%"}
+- stimare $f$ vuol dire trovare la regola media, qui i 25 euro a visita;
+- non potremo mai prevedere $\varepsilon$ esattamente: è l'errore irriducibile;
+- un buon modello cattura $f$, non insegue $\varepsilon$.
+:::
+
+::::
+
 ## Stimare $f$ per due scopi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
 stimiamo $f$ con $\hat f$, e prevediamo con $\hat Y = \hat f(X)$. l'errore di previsione si scompone:
@@ -434,6 +455,26 @@ $$
 
 ::::
 
+## Overfitting: imparare a memoria {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
+
+un'immagine per ricordarlo: lo studente che **impara a memoria** i compiti già svolti.
+
+:::: {.columns}
+
+::: {.column width="55%"}
+- va benissimo sui compiti che ha già visto (il training): li ripete a memoria;
+- ma all'esame, con esercizi nuovi (il test), va in difficoltà: non ha capito il metodo;
+- chi invece **capisce il metodo** è meno perfetto sui vecchi compiti ma se la cava sui nuovi;
+- un modello che overfitta è il primo studente: bravissimo sul training, fragile sul test.
+:::
+
+::: {.column width="45%"}
+- training error bassissimo e test error alto vuol dire ho memorizzato, non ho imparato;
+- la difesa è la stessa dello studente: esercitarsi su problemi nuovi, cioè validare su dati mai visti.
+:::
+
+::::
+
 ## Quiz lampo: il modello che non sbaglia {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
 un modello azzecca quasi perfettamente tutti i dati di addestramento.
@@ -531,6 +572,28 @@ $$
 - k-fold: si divide in $k$ parti, si addestra su $k-1$ e si valuta sulla restante, a rotazione;
 - LOOCV: il caso estremo con $k = n$, si lascia fuori un dato alla volta.
 
+## La cross-validation, passo passo {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
+
+un esempio concreto di 5-fold su 1.000 clienti:
+
+:::: {.columns}
+
+::: {.column width="56%"}
+- dividiamo i clienti in **5 gruppi** da 200;
+- giro 1: alleniamo sui gruppi 2-3-4-5, valutiamo sul gruppo 1;
+- giro 2: alleniamo su 1-3-4-5, valutiamo sul gruppo 2;
+- e così via, finché ogni gruppo ha fatto da test una volta;
+- l'errore finale è la **media** dei 5 errori.
+:::
+
+::: {.column width="44%"}
+- ogni cliente finisce nel test esattamente una volta;
+- usiamo tutti i dati per allenare e per validare, senza toccare il test set finale;
+- è più stabile di un solo split e ci dice quale flessibilità scegliere.
+:::
+
+::::
+
 ## Quiz lampo: la cross-validation {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
 a cosa serve principalmente la k-fold cross-validation?
@@ -615,6 +678,30 @@ $$ \hat y = \hat\beta_0 + \hat\beta_1 x_1 + \dots + \hat\beta_p x_p
 - ogni $\hat\beta_j$ dice quanto pesa quel predittore, a parità degli altri;
 - esempio ISL: vendite in funzione dei budget TV, radio, volantino;
 - semplice, veloce, interpretabile: il punto di partenza, non il nemico.
+
+## Leggere i coefficienti: dal numero al significato {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
+
+il bello del lineare e del logistico: i coefficienti **si leggono**.
+
+:::: {.columns}
+
+::: {.column width="52%"}
+**regressione** (vendite, Advertising):
+
+- se $\hat\beta_{\text{TV}} = 0{,}047$, ogni 1.000 in più di budget sulla TV valgono circa **47 unità** vendute in più, a parità del resto;
+- il segno dà la direzione, la grandezza dà l'intensità.
+:::
+
+::: {.column width="48%"}
+**classificazione** (insolvenza, Default):
+
+- la logistica ragiona in **odds**: un coefficiente positivo sul saldo significa che, salendo il saldo, l'insolvenza diventa più probabile;
+- dal logit si torna alla probabilità con la curva a S.
+:::
+
+::::
+
+è il livello di lettura che un modello scatola nera non offre: lo rivedremo con la tabella `statsmodels` in NB1.
 
 ## Classificazione interpretabile: regressione logistica {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
@@ -761,6 +848,26 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 
 ::::
 
+## L'ensemble: la saggezza della folla {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
+
+perché tanti alberi mediocri battono un solo albero bravo?
+
+:::: {.columns}
+
+::: {.column width="56%"}
+- è il principio della **saggezza della folla**: tante opinioni imperfette e indipendenti, messe insieme, sbagliano meno del singolo esperto;
+- ogni albero vede una parte diversa dei dati e fa errori diversi;
+- mediando le loro previsioni, gli errori casuali si compensano e resta il segnale;
+- è esattamente quello che fanno **bagging** e **random forest**.
+:::
+
+::: {.column width="44%"}
+- conta che gli alberi siano **diversi** tra loro: se sbagliano tutti allo stesso modo, la media non aiuta;
+- la random forest li rende diversi sia sui dati sia sulle variabili.
+:::
+
+::::
+
 ## Dagli alberi agli ensemble {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
 ::: {.incremental}
@@ -769,6 +876,15 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 - boosting: alberi piccoli aggiunti in sequenza, ognuno corregge gli errori del precedente;
 - nel pomeriggio vedremo dal vivo l'albero che overfitta e la foresta che lo stabilizza.
 :::
+
+## Boosting: imparare dagli errori {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
+
+il boosting ha un'altra strategia, sequenziale invece che parallela.
+
+- immagina uno studente che, dopo ogni simulazione d'esame, si concentra **solo sulle domande sbagliate**;
+- il boosting fa così: ogni alberello piccolo corregge gli errori lasciati dai precedenti;
+- alla fine si sommano tanti piccoli aggiustamenti mirati;
+- spesso è il modello più accurato, ma va dosato: troppi passi e ricomincia a overfittare.
 
 ## SVM: margine massimo e kernel {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
@@ -838,12 +954,43 @@ addestrare vuol dire **minimizzare una funzione di costo** (o perdita), che misu
 - è una $f$ estremamente flessibile, ma in fondo è ancora $Y = f(X)$;
 - più capacità porta più potenza e più rischio di overfitting: servono molti più dati.
 
+## Feature learning, in concreto {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+cosa vuol dire che la rete impara le feature da sola?
+
+:::: {.columns}
+
+::: {.column width="56%"}
+- per riconoscere una cifra scritta a mano nessuno le dice cerca i bordi;
+- i primi strati imparano da soli pattern semplici: **bordi** e angoli;
+- gli strati intermedi li combinano in **forme**, curve e incroci;
+- gli ultimi strati riconoscono l'oggetto intero, la cifra;
+- noi non scegliamo le feature: emergono dai dati, livello dopo livello.
+:::
+
+::: {.column width="44%"}
+- nei modelli del mattino le feature le scegliamo noi: recency, visite, scontrino;
+- nelle reti profonde questo lavoro lo fa la rete: è il loro superpotere sui dati grezzi come immagini e testo.
+:::
+
+::::
+
 ## È ancora apprendimento statistico {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
 - Stessi concetti del mattino: training e test, overfitting, regolarizzazione, validazione;
 - una rete senza regolarizzazione overfitta come un polinomio di grado troppo alto;
 - più dati e più capacità spostano il trade-off bias-varianza, non lo eliminano;
 - niente magia: gli stessi principi, su scala molto più grande.
+
+## Perché le reti vogliono tanti dati {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+flessibilità altissima e pochi dati non vanno d'accordo.
+
+- una rete profonda ha milioni di parametri: è una $f$ liberissima di piegarsi;
+- con pochi dati questa libertà diventa un problema: la rete impara il rumore, overfitta;
+- servono molti esempi per riempire tutta quella flessibilità e farla generalizzare;
+- è il trade-off bias-varianza di stamattina: più capacità chiede più dati per non sbilanciarsi sulla varianza;
+- per questo su tabelle piccole un modello semplice spesso batte la rete, mentre su milioni di immagini la rete domina.
 
 ## Quiz lampo: la rete profonda {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
