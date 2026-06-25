@@ -817,7 +817,7 @@ avete cento predittori e sospettate che solo una decina conti davvero. volete un
 :::
 
 ::: {.column width="54%"}
-![](assets/polinomi-spline.svg){width="100%" fig-alt="Salario in funzione dell'età: fit lineare contro polinomio di grado quattro"}
+![](assets/polinomi-spline.svg){width="100%" fig-alt="Salario in funzione dell'età: retta rigida, polinomio di grado alto instabile agli estremi, e spline cubica liscia e stabile"}
 :::
 
 ::::

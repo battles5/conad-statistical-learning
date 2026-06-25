@@ -368,6 +368,9 @@ def albero_decisione():
 # 11) Oltre la linearita': salario in funzione dell'eta' (stile Wage, ISL cap.7)
 # ---------------------------------------------------------------------------
 def polinomi_spline():
+    from sklearn.preprocessing import SplineTransformer
+    from sklearn.linear_model import LinearRegression
+    from sklearn.pipeline import make_pipeline
     rng = np.random.default_rng(8)
     n = 240
     eta = rng.uniform(18, 80, n)
@@ -375,14 +378,20 @@ def polinomi_spline():
     wage = vera + rng.normal(0, 12, n)
     xs = np.linspace(18, 80, 300)
     cl = np.polyfit(eta, wage, 1)
-    cp = np.polyfit(eta, wage, 4)
+    cp = np.polyfit(eta, wage, 10)  # grado alto: instabile agli estremi
+    spline = make_pipeline(SplineTransformer(n_knots=6, degree=3),
+                           LinearRegression()).fit(eta.reshape(-1, 1), wage)
+    ys = spline.predict(xs.reshape(-1, 1))
 
     fig, ax = plt.subplots(figsize=(7.6, 4.6))
     ax.scatter(eta, wage, s=20, color="#c4cad4", edgecolor="white", lw=0.3, zorder=2)
-    ax.plot(xs, np.polyval(cl, xs), color=GOLD, lw=2.6, label="Lineare", zorder=3)
-    ax.plot(xs, np.polyval(cp, xs), color=NAVY, lw=3, label="Polinomio (grado 4)", zorder=4)
+    ax.plot(xs, np.polyval(cl, xs), color=GOLD, lw=2.6, label="Lineare (rigida)", zorder=3)
+    ax.plot(xs, np.polyval(cp, xs), color=RED, lw=1.8, ls="--",
+            label="Polinomio grado 10 (instabile agli estremi)", zorder=4)
+    ax.plot(xs, ys, color=NAVY, lw=3, label="Spline cubica (liscia e stabile)", zorder=5)
     ax.set_xlabel("Età", fontsize=14.3); ax.set_ylabel("Salario (migliaia)", fontsize=14.3)
-    ax.legend(loc="upper left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
+    ax.set_ylim(wage.min() - 10, wage.max() + 10)
+    ax.legend(loc="upper left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=11.5)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "polinomi-spline.svg")
 
