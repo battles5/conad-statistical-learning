@@ -5,7 +5,21 @@ Sito del corso (8 ore: 4 frontali + 4 hands-on), spina dorsale narrativa in **Qu
 Tesi del corso: l'apprendimento statistico è machine learning a tutti gli effetti, ed è la base
 concettuale da cui discendono anche i modelli più avanzati (CNN, RNN, LSTM, GAN, transformer, LLM).
 
-URL pubblico: `https://battles5.github.io/conad-statistical-learning/`
+## ▶ Apri le slide
+
+### [👉 Apri le slide del corso](https://battles5.github.io/conad-statistical-learning/)
+
+`https://battles5.github.io/conad-statistical-learning/`
+
+## I notebook del pomeriggio (Google Colab)
+
+Si aprono direttamente in Colab, senza installare nulla:
+
+- [NB0 · Setup e warm-up](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB0_setup.ipynb)
+- [NB1 · Regressione e bias-varianza](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB1_regressione_biasvarianza.ipynb)
+- [NB2 · Classificazione, regolarizzazione e CV](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB2_classificazione_regolarizzazione.ipynb)
+- [NB3 · Ensemble e caso retail Conad](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB3_ensemble_caso_retail.ipynb)
+- [NB4 · Demo reti neurali](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB4_reti_neurali.ipynb)
 
 ## Cosa contiene
 

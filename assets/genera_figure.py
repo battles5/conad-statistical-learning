@@ -80,7 +80,7 @@ def y_fx():
 
     fig, ax = plt.subplots(figsize=(7.4, 5.2))
     ax.plot(xs, f(xs), color=NAVY, lw=3, label="f(X): la relazione vera", zorder=2)
-    ax.scatter(x, y, color=CYAN, s=34, edgecolor="white", lw=0.6, zorder=3, label="dati osservati")
+    ax.scatter(x, y, color=CYAN, s=34, edgecolor="white", lw=0.6, zorder=3, label="Dati osservati")
     for xi, yi in zip(x[5::8], y[5::8]):
         ax.plot([xi, xi], [f(xi), yi], color=RED, lw=1.3, ls=":", zorder=2)
     xi, yi = x[5], y[5]
@@ -155,7 +155,7 @@ def ridge_lasso():
                          facecolor=NAVY, edgecolor=NAVY, alpha=0.18, lw=1.6))
     contorni(ax)
     ax.scatter(0, s, color=RED, s=70, zorder=6)
-    ax.annotate("soluzione:\n" + r"$\beta_1=0$", (0, s), xytext=(-70, 6),
+    ax.annotate("Soluzione:\n" + r"$\beta_1=0$", (0, s), xytext=(-70, 6),
                 textcoords="offset points", fontsize=13.0, color=RED, fontweight="bold")
     ax.set_title("Lasso  (vincolo L1)", color=NAVY, fontsize=16.9, fontweight="bold")
 
@@ -164,7 +164,7 @@ def ridge_lasso():
     ax.add_patch(Circle((0, 0), s, facecolor=NAVY, edgecolor=NAVY, alpha=0.18, lw=1.6))
     contorni(ax)
     ax.scatter(0.62, 0.78, color=RED, s=70, zorder=6)
-    ax.annotate("soluzione:\nentrambi piccoli,\nnessuno a zero", (0.62, 0.78),
+    ax.annotate("Soluzione:\nentrambi piccoli,\nnessuno a zero", (0.62, 0.78),
                 xytext=(-95, -38), textcoords="offset points", fontsize=13.0,
                 color=RED, fontweight="bold")
     ax.set_title("Ridge  (vincolo L2)", color=NAVY, fontsize=16.9, fontweight="bold")
@@ -214,13 +214,13 @@ def genealogia():
 # ---------------------------------------------------------------------------
 def linea_tempo():
     tappe = [
-        ("1805", "minimi quadrati\n(regressione lineare)", 0.03, -1),
-        ("1936", "analisi\ndiscriminante", 0.19, 1),
-        ("anni '40", "regressione\nlogistica", 0.33, -1),
-        ("anni '70", "modelli lineari\ngeneralizzati", 0.49, 1),
-        ("anni '80", "alberi (CART), GAM,\nreti neurali", 0.66, -1),
-        ("anni '90", "support vector\nmachines", 0.81, 1),
-        ("oggi", "deep learning,\nLLM", 0.96, -1),
+        ("1805", "Minimi quadrati\n(regressione lineare)", 0.03, -1),
+        ("1936", "Analisi\ndiscriminante", 0.19, 1),
+        ("Anni '40", "Regressione\nlogistica", 0.33, -1),
+        ("Anni '70", "Modelli lineari\ngeneralizzati", 0.49, 1),
+        ("Anni '80", "Alberi (CART), GAM,\nreti neurali", 0.66, -1),
+        ("Anni '90", "Support vector\nmachines", 0.81, 1),
+        ("Oggi", "Deep learning,\nLLM", 0.96, -1),
     ]
     fig, ax = plt.subplots(figsize=(11.0, 5.0))
     ax.annotate("", xy=(1.03, 0), xytext=(-0.03, 0),

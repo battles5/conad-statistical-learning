@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-06-25T11:08:41.374701</dc:date>
+    <dc:date>2026-06-25T11:29:36.582482</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -32,7 +32,7 @@ z
   <g id="axes_1">
    <g id="PathCollection_1">
     <defs>
-     <path id="m103c53edf1" d="M 0 5.700877 
+     <path id="md458e56969" d="M 0 5.700877 
 C 1.51189 5.700877 2.962061 5.100197 4.031129 4.031129 
 C 5.100197 2.962061 5.700877 1.51189 5.700877 0 
 C 5.700877 -1.51189 5.100197 -2.962061 4.031129 -4.031129 
@@ -44,64 +44,64 @@ C -2.962061 5.100197 -1.51189 5.700877 0 5.700877
 z
 " style="stroke: #002060; stroke-width: 1.5"/>
     </defs>
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="73.683077" y="57.096" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="73.683077" y="57.096" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #002060" x="83.683077" y="54.822828" transform="rotate(-0 83.683077 54.822828)">Regressione lineare</text>
    </g>
    <g id="PathCollection_2">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="104.969231" y="84.816" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="104.969231" y="84.816" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_2">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #002060" x="114.969231" y="88.542828" transform="rotate(-0 114.969231 88.542828)">Regressione logistica, lasso</text>
    </g>
    <g id="PathCollection_3">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="144.076923" y="109.764" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="144.076923" y="109.764" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_3">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #002060" x="154.076923" y="115.490828" transform="rotate(-0 154.076923 115.490828)">Ridge</text>
    </g>
    <g id="PathCollection_4">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="198.827692" y="145.8" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="198.827692" y="145.8" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_4">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #002060" x="188.827692" y="153.580344" transform="rotate(-0 188.827692 153.580344)">GAM, spline</text>
    </g>
    <g id="PathCollection_5">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="222.292308" y="120.852" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="222.292308" y="120.852" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_5">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #002060" x="232.292308" y="118.632344" transform="rotate(-0 232.292308 118.632344)">Alberi di decisione</text>
    </g>
    <g id="PathCollection_6">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="292.686154" y="201.24" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="292.686154" y="201.24" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_6">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #002060" x="282.686154" y="199.020344" transform="rotate(-0 282.686154 199.020344)">SVM</text>
    </g>
    <g id="PathCollection_7">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="339.615385" y="234.504" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="339.615385" y="234.504" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_7">
     <text style="font-weight: 700; font-size: 13.7px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #002060" x="329.615385" y="232.230828" transform="rotate(-0 329.615385 232.230828)">Bagging, random forest, boosting</text>
    </g>
    <g id="PathCollection_8">
-    <g clip-path="url(#pefc24d5506)">
-     <use xlink:href="#m103c53edf1" x="390.455385" y="276.084" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
+    <g clip-path="url(#pbfb6070fef)">
+     <use xlink:href="#md458e56969" x="390.455385" y="276.084" style="fill: #00adcf; stroke: #002060; stroke-width: 1.5"/>
     </g>
    </g>
    <g id="text_8">
@@ -134,7 +134,7 @@ L 29.353846 30.046883
   </g>
  </g>
  <defs>
-  <clipPath id="pefc24d5506">
+  <clipPath id="pbfb6070fef">
    <rect x="18.932308" y="7.2" width="457.56" height="310.464"/>
   </clipPath>
  </defs>

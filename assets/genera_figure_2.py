@@ -64,13 +64,13 @@ def nature_blackbox():
     ax.add_patch(FancyBboxPatch((cx - 0.27, 0.42), 0.54, 0.20,
                                 boxstyle="round,pad=0.02,rounding_size=0.04",
                                 facecolor=NAVY, edgecolor=NAVY))
-    ax.text(cx, 0.52, "natura\n$f$ sconosciuta", ha="center", va="center",
+    ax.text(cx, 0.52, "Natura\n$f$ sconosciuta", ha="center", va="center",
             color="white", fontsize=19, fontweight="bold", linespacing=1.35)
     ax.annotate("", xy=(cx, 0.22), xytext=(cx, 0.40),
                 arrowprops=dict(arrowstyle="-|>", color=SLATE, lw=2.8))
     ax.text(cx, 0.13, "$Y$\n(risposta)", ha="center", va="center",
             fontsize=18, color=NAVY, fontweight="bold", linespacing=1.35)
-    ax.text(cx, 0.0, "osserviamo solo gli ingressi e le uscite,\nnon il meccanismo",
+    ax.text(cx, 0.0, "Osserviamo solo gli ingressi e le uscite,\nnon il meccanismo",
             ha="center", va="center", fontsize=13.5, color=GREY, style="italic", linespacing=1.3)
     ax.set_xlim(0, 1); ax.set_ylim(-0.05, 1.0); ax.axis("off")
     save(fig, "nature-blackbox.svg")
@@ -88,11 +88,11 @@ def dati_train_test():
     xs = np.linspace(0, 1, 300)
 
     fig, ax = plt.subplots(figsize=(7.6, 4.6))
-    ax.plot(xs, f_vera(xs), color=NAVY, lw=2.6, zorder=2, label="relazione vera $f$")
+    ax.plot(xs, f_vera(xs), color=NAVY, lw=2.6, zorder=2, label="Relazione vera $f$")
     ax.scatter(x[~is_test], y[~is_test], s=42, color="#b9bfca", edgecolor="white",
-               lw=0.5, zorder=3, label="training set")
+               lw=0.5, zorder=3, label="Training set")
     ax.scatter(x[is_test], y[is_test], s=46, color=CYAN, edgecolor=NAVY,
-               lw=0.7, zorder=4, label="test set")
+               lw=0.7, zorder=4, label="Test set")
     ax.set_xlabel("X"); ax.set_ylabel("Y")
     ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.01), ncol=3, frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=12.5)
     ax.spines[["top", "right"]].set_visible(False)
@@ -113,11 +113,11 @@ def flessibilita_fit():
     fig, ax = plt.subplots(figsize=(7.8, 4.8))
     ax.scatter(x, y, s=38, color="#b9bfca", edgecolor="white", lw=0.5, zorder=2)
     ax.plot(xs, poly_fit_pred(x, y, xs, 1), color=GOLD, lw=2.8,
-            label="rigido (lineare)", zorder=3)
+            label="Rigido (lineare)", zorder=3)
     ax.plot(xs, poly_fit_pred(x, y, xs, 5), color=CYAN, lw=2.8,
-            label="equilibrato", zorder=4)
+            label="Equilibrato", zorder=4)
     ax.plot(xs, poly_fit_pred(x, y, xs, 18), color=RED, lw=2.0,
-            label="troppo flessibile", zorder=5)
+            label="Troppo flessibile", zorder=5)
     ax.set_xlabel("X"); ax.set_ylabel("Y")
     ax.set_ylim(y.min() - 0.12, y.max() + 0.12)
     ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.01), ncol=3, frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=12.5)
@@ -150,18 +150,18 @@ def errore_train_test():
     flex = np.arange(ks.size)  # asse equispaziato: a destra piu' flessibile
 
     fig, ax = plt.subplots(figsize=(7.6, 4.8))
-    ax.axhline(sigma ** 2, color=GREY, ls="--", lw=1.6, label="errore irriducibile")
-    ax.plot(flex, tr_m, "o-", color="#9aa3b2", lw=2.4, ms=6, label="errore di training")
-    ax.plot(flex, te_m, "o-", color=RED, lw=2.6, ms=6, label="errore di test")
+    ax.axhline(sigma ** 2, color=GREY, ls="--", lw=1.6, label="Errore irriducibile")
+    ax.plot(flex, tr_m, "o-", color="#9aa3b2", lw=2.4, ms=6, label="Errore di training")
+    ax.plot(flex, te_m, "o-", color=RED, lw=2.6, ms=6, label="Errore di test")
     jmin = int(np.argmin(te_m))
     ax.scatter([flex[jmin]], [te_m[jmin]], s=150, facecolor="none",
                edgecolor=NAVY, lw=2.2, zorder=6)
-    ax.annotate("punto di equilibrio", (flex[jmin], te_m[jmin]),
+    ax.annotate("Punto di equilibrio", (flex[jmin], te_m[jmin]),
                 xytext=(10, 30), textcoords="offset points", color=NAVY,
                 fontsize=13.7, fontweight="bold",
                 arrowprops=dict(arrowstyle="->", color=NAVY))
-    ax.set_xlabel("flessibilità del modello  (più a destra = più flessibile)", fontsize=14.3)
-    ax.set_ylabel("errore quadratico medio", fontsize=14.3)
+    ax.set_xlabel("Flessibilità del modello  (più a destra = più flessibile)", fontsize=14.3)
+    ax.set_ylabel("Errore quadratico medio", fontsize=14.3)
     ax.set_ylim(0, te_m.max() * 1.12)
     ax.set_xticks([])
     ax.legend(loc="upper right", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
@@ -193,12 +193,12 @@ def scomposizione_bias_var():
     tot = bias2 + var + irr
 
     fig, ax = plt.subplots(figsize=(7.6, 4.8))
-    ax.plot(gradi, bias2, "o-", color=NAVY, lw=2.4, ms=5, label="distorsione$^2$ (bias)")
-    ax.plot(gradi, var, "o-", color=CYAN, lw=2.4, ms=5, label="varianza")
-    ax.plot(gradi, irr, "--", color=GREY, lw=1.8, label="errore irriducibile")
-    ax.plot(gradi, tot, "o-", color=RED, lw=2.8, ms=5, label="errore di test totale")
-    ax.set_xlabel("flessibilità del modello", fontsize=14.3)
-    ax.set_ylabel("contributo all'errore", fontsize=14.3)
+    ax.plot(gradi, bias2, "o-", color=NAVY, lw=2.4, ms=5, label="Distorsione$^2$ (bias)")
+    ax.plot(gradi, var, "o-", color=CYAN, lw=2.4, ms=5, label="Varianza")
+    ax.plot(gradi, irr, "--", color=GREY, lw=1.8, label="Errore irriducibile")
+    ax.plot(gradi, tot, "o-", color=RED, lw=2.8, ms=5, label="Errore di test totale")
+    ax.set_xlabel("Flessibilità del modello", fontsize=14.3)
+    ax.set_ylabel("Contributo all'errore", fontsize=14.3)
     ax.set_ylim(0, np.percentile(tot, 92) * 1.15)
     ax.legend(loc="upper right", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
@@ -212,10 +212,10 @@ def bersaglio_bias_varianza():
     rng = np.random.default_rng(2)
     fig, axes = plt.subplots(2, 2, figsize=(7.4, 7.6))
     casi = [
-        ("bias basso, varianza bassa", (0, 0), 0.07, axes[0, 0]),
-        ("bias basso, varianza alta", (0, 0), 0.22, axes[0, 1]),
-        ("bias alto, varianza bassa", (0.42, 0.30), 0.07, axes[1, 0]),
-        ("bias alto, varianza alta", (0.42, 0.30), 0.22, axes[1, 1]),
+        ("Bias basso, varianza bassa", (0, 0), 0.07, axes[0, 0]),
+        ("Bias basso, varianza alta", (0, 0), 0.22, axes[0, 1]),
+        ("Bias alto, varianza bassa", (0.42, 0.30), 0.07, axes[1, 0]),
+        ("Bias alto, varianza alta", (0.42, 0.30), 0.22, axes[1, 1]),
     ]
     for titolo, centro, sd, ax in casi:
         for r, col in [(1.0, LIGHT), (0.66, "#cfe7f2"), (0.33, CYAN)]:
@@ -251,9 +251,9 @@ def logistica_sigmoide():
     ax.scatter(balance[y == 0], np.full((y == 0).sum(), -0.02), s=14, color=CYAN,
                marker="|", alpha=0.6)
     ax.axhline(0.5, color=GREY, ls=":", lw=1.4)
-    ax.text(120, 0.54, "soglia 0,5", color=GREY, fontsize=13.0)
-    ax.set_xlabel("saldo sul conto (balance)", fontsize=14.3)
-    ax.set_ylabel("probabilità stimata di insolvenza", fontsize=14.3)
+    ax.text(120, 0.54, "Soglia 0,5", color=GREY, fontsize=13.0)
+    ax.set_xlabel("Saldo sul conto (balance)", fontsize=14.3)
+    ax.set_ylabel("Probabilità stimata di insolvenza", fontsize=14.3)
     ax.set_ylim(-0.08, 1.10)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "logistica-sigmoide.svg")
@@ -294,9 +294,9 @@ def confine_knn():
         ax.set_xlim(-0.05, 1.05); ax.set_ylim(-0.05, 1.05)
         ax.set_xticks([]); ax.set_yticks([])
         ax.set_xlabel("$X_1$"); ax.set_ylabel("$X_2$")
-    axes[0].text(0.5, -0.13, "troppo flessibile: confine frastagliato",
+    axes[0].text(0.5, -0.13, "Troppo flessibile: confine frastagliato",
                  transform=axes[0].transAxes, ha="center", fontsize=13.0, color=RED)
-    axes[1].text(0.5, -0.13, "troppo rigido: confine quasi lineare",
+    axes[1].text(0.5, -0.13, "Troppo rigido: confine quasi lineare",
                  transform=axes[1].transAxes, ha="center", fontsize=13.0, color=GREY)
     save(fig, "confine-knn.svg")
 
@@ -316,11 +316,11 @@ def knn_errore():
         ete.append(np.mean(m.predict(Xte) != yte))
 
     fig, ax = plt.subplots(figsize=(7.6, 4.6))
-    ax.plot(1 / Ks, etr, "o-", color="#9aa3b2", lw=2.2, ms=6, label="errore di training")
-    ax.plot(1 / Ks, ete, "o-", color=RED, lw=2.6, ms=6, label="errore di test")
+    ax.plot(1 / Ks, etr, "o-", color="#9aa3b2", lw=2.2, ms=6, label="Errore di training")
+    ax.plot(1 / Ks, ete, "o-", color=RED, lw=2.6, ms=6, label="Errore di test")
     ax.set_xscale("log")
-    ax.set_xlabel("flessibilità  →  $1/K$  (scala logaritmica)", fontsize=14.3)
-    ax.set_ylabel("tasso di errore", fontsize=14.3)
+    ax.set_xlabel("Flessibilità  →  $1/K$  (scala logaritmica)", fontsize=14.3)
+    ax.set_ylabel("Tasso di errore", fontsize=14.3)
     ax.legend(loc="lower left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "knn-errore.svg")
@@ -353,13 +353,13 @@ def albero_decisione():
     for a, b, e in [(R, A, "sì"), (R, B, "no"), (A, AA, "sì"), (A, AB, "no"),
                     (B, BA, "sì"), (B, BB, "no")]:
         ramo(a, b, e)
-    nodo(*R, "recency > 30 giorni?")
-    nodo(*A, "visite/mese < 3?")
-    nodo(*B, "reclami > 0?")
-    nodo(*AA, "churn\nalto", foglia=True, esito="alto")
-    nodo(*AB, "churn\nmedio", foglia=True, esito="medio")
-    nodo(*BA, "churn\nmedio", foglia=True, esito="medio")
-    nodo(*BB, "churn\nbasso", foglia=True, esito="basso")
+    nodo(*R, "Recency > 30 giorni?")
+    nodo(*A, "Visite/mese < 3?")
+    nodo(*B, "Reclami > 0?")
+    nodo(*AA, "Churn\nalto", foglia=True, esito="alto")
+    nodo(*AB, "Churn\nmedio", foglia=True, esito="medio")
+    nodo(*BA, "Churn\nmedio", foglia=True, esito="medio")
+    nodo(*BB, "Churn\nbasso", foglia=True, esito="basso")
     ax.set_xlim(0, 8.8); ax.set_ylim(0.5, 5.0); ax.axis("off")
     save(fig, "albero-decisione.svg")
 
@@ -379,9 +379,9 @@ def polinomi_spline():
 
     fig, ax = plt.subplots(figsize=(7.6, 4.6))
     ax.scatter(eta, wage, s=20, color="#c4cad4", edgecolor="white", lw=0.3, zorder=2)
-    ax.plot(xs, np.polyval(cl, xs), color=GOLD, lw=2.6, label="lineare", zorder=3)
-    ax.plot(xs, np.polyval(cp, xs), color=NAVY, lw=3, label="polinomio (grado 4)", zorder=4)
-    ax.set_xlabel("età", fontsize=14.3); ax.set_ylabel("salario (migliaia)", fontsize=14.3)
+    ax.plot(xs, np.polyval(cl, xs), color=GOLD, lw=2.6, label="Lineare", zorder=3)
+    ax.plot(xs, np.polyval(cp, xs), color=NAVY, lw=3, label="Polinomio (grado 4)", zorder=4)
+    ax.set_xlabel("Età", fontsize=14.3); ax.set_ylabel("Salario (migliaia)", fontsize=14.3)
     ax.legend(loc="upper left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "polinomi-spline.svg")

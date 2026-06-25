@@ -2,7 +2,7 @@
 title: "Apprendimento statistico"
 subtitle: "corso per CONAD Nord Ovest · dal modello statistico ai modelli profondi"
 author: "Orso Peruzzi · Data Scientist, IFAB"
-date: today
+date: "2026-06-26"
 date-format: "D MMMM YYYY"
 lang: it
 title-slide-attributes:
@@ -32,13 +32,13 @@ l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
 
 ![](assets/linea-tempo.svg){width="96%" fig-alt="Linea del tempo dello statistical learning, dai minimi quadrati del 1805 al deep learning di oggi"}
 
-- non è una moda recente: i minimi quadrati nascono per l'astronomia a inizio Ottocento;
+- Non è una moda recente: i minimi quadrati nascono per l'astronomia a inizio Ottocento;
 - ogni epoca ha aggiunto un mattone, fino alle reti profonde di oggi;
 - "tradizionale" non vuol dire superato, vuol dire fondante.
 
 ## Perché il termine è fuorviante {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
-- il termine nasce per contrapporre i vecchi sistemi simbolici e a regole alle reti neurali;
+- Il termine nasce per contrapporre i vecchi sistemi simbolici e a regole alle reti neurali;
 - oggi viene usato a sproposito per liquidare regressioni, alberi e SVM come tecnologia minore;
 - ISL lo dice chiaro: lo statistical learning non va visto come una serie di scatole nere;
 - una regressione logistica e una random forest sono lo stesso paradigma di una rete: imparare dai dati.
@@ -48,7 +48,7 @@ l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
 :::: {.columns}
 
 ::: {.column width="48%"}
-- l'intelligenza artificiale è l'insieme più ampio;
+- L'intelligenza artificiale è l'insieme più ampio;
 - il machine learning ne è il cuore moderno, e coincide con l'apprendimento statistico;
 - il deep learning è un sottoinsieme del machine learning, non un campo separato;
 - "AI tradizionale", semmai, sono i vecchi sistemi a regole.
@@ -60,33 +60,31 @@ l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
 
 ::::
 
-## La giornata in due tempi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
+## Il programma della giornata {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
 :::: {.columns}
 
 ::: {.column width="50%"}
-### Mattina, l'intuizione
+### Mattina · teoria (4 ore)
 
-- da dove nasce l'idea di "AI tradizionale";
-- cos'è davvero l'apprendimento statistico;
-- il cuore di tutto: il trade-off bias-varianza;
-- le famiglie di modelli e le reti neurali.
+- Apertura: perché "AI tradizionale" è un'etichetta fuorviante;
+- dai modelli statistici allo statistical learning, l'equazione $Y = f(X) + \varepsilon$;
+- il cuore del corso: errore, overfitting e trade-off bias-varianza;
+- le famiglie di modelli: lineare, regolarizzazione, alberi, ensemble, SVM;
+- reti neurali e la big picture, fino agli LLM.
 :::
 
 ::: {.column width="50%"}
-### Pomeriggio, le mani sui dati
+### Pomeriggio · pratica (4 ore)
 
-- code-along guidato su Colab;
-- gli stessi concetti, toccati con mano;
-- regressione, classificazione, alberi, ensemble;
-- un caso retail in stile Conad.
+- NB0, setup su Colab e prima previsione;
+- NB1, regressione e bias-varianza resi visibili;
+- NB2, classificazione, regolarizzazione e cross-validation;
+- NB3, alberi, ensemble e il caso retail Conad;
+- NB4, demo di una piccola rete neurale.
 :::
 
 ::::
-
-::: {.callout-note appearance="minimal"}
-filo rosso: un unico continuum, dai minimi quadrati ai modelli profondi.
-:::
 
 ## Blocco 1 · Dal modello statistico allo statistical learning {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
 
@@ -109,7 +107,7 @@ in tutti i casi: dai dati a una risposta quantitativa su qualcosa che non osserv
 
 ## Lo schema comune: risposta e predittori {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
-- c'è una **risposta** $Y$, il fenomeno di interesse, ad esempio le vendite di un prodotto;
+- C'è una **risposta** $Y$, il fenomeno di interesse, ad esempio le vendite di un prodotto;
 - ci sono dei **predittori** $X_1, X_2, \dots, X_p$, le informazioni note;
 - esempio ISL, dataset Advertising: $Y$ sono le vendite, $X_1, X_2, X_3$ i budget su TV, radio, volantino;
 - la risposta ha tanti nomi (output, target, variabile dipendente), i predittori altrettanti (input, feature, covariate).
@@ -151,7 +149,7 @@ $$
 
 ## Primo scopo: predizione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
-- a volte abbiamo gli input $X$ e ci serve solo una buona previsione di $Y$;
+- A volte abbiamo gli input $X$ e ci serve solo una buona previsione di $Y$;
 - $\hat f$ può essere una scatola nera: non importa la sua forma, conta che $\hat f(X)$ sia vicino a $Y$;
 - esempio ISL: una campagna di marketing diretto, vogliamo solo prevedere chi risponde;
 - esempio Conad: quanto spenderà questo cliente nei prossimi dodici mesi?.
@@ -174,7 +172,7 @@ vogliamo sapere **di quanto** un euro speso in volantino fa aumentare le vendite
 - C) nessuno dei due.
 
 ::: {.fragment}
-::: {.callout-tip icon=false title="risposta"}
+::: {.callout-tip icon=false title="Risposta"}
 **B**, interpretazione: ci interessa il legame tra un predittore e la risposta, non solo il numero finale.
 :::
 :::
@@ -184,7 +182,7 @@ vogliamo sapere **di quanto** un euro speso in volantino fa aumentare le vendite
 :::: {.columns}
 
 ::: {.column width="56%"}
-- **modeling**, la statistica classica: postulo un meccanismo generatore dei dati, una forma per $f$ nota a meno di pochi parametri, e la uso per spiegare;
+- **Modeling**, la statistica classica: postulo un meccanismo generatore dei dati, una forma per $f$ nota a meno di pochi parametri, e la uso per spiegare;
 - **learning**: tratto $f$ come una scatola nera e cerco un algoritmo che la approssimi bene, con priorità alla previsione;
 - non è un confine netto, ma uno spostamento di enfasi, dalle assunzioni ai dati.
 :::
@@ -199,7 +197,7 @@ vogliamo sapere **di quanto** un euro speso in volantino fa aumentare le vendite
 
 > "Essentially, all models are wrong, but some are useful." (G. Box)
 
-- ogni modello è una semplificazione della realtà, può essere sbagliato ma utile;
+- Ogni modello è una semplificazione della realtà, può essere sbagliato ma utile;
 - il rasoio di Occam: tra modelli che spiegano i dati quasi ugualmente bene, scegli il più semplice;
 - assunzioni comode (normalità, linearità, indipendenza) a volte non bastano a prevedere bene;
 - da qui la spinta verso metodi più flessibili, lo statistical learning.
@@ -211,16 +209,16 @@ vogliamo sapere **di quanto** un euro speso in volantino fa aumentare le vendite
 ::: {.column width="50%"}
 ### Parametrico
 
-- assumo una forma, ad esempio lineare;
+- Assumo una forma, ad esempio lineare;
 $$ f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p $$
-- riduco tutto a stimare i $\beta$;
+- Riduco tutto a stimare i $\beta$;
 - semplice, ma se la forma è sbagliata la stima è scadente.
 :::
 
 ::: {.column width="50%"}
 ### Non parametrico
 
-- non impongo una forma a $f$;
+- Non impongo una forma a $f$;
 - la lascio decidere ai dati, con grande flessibilità;
 - si adatta a tante forme diverse;
 - ma servono molti dati, e può overfittare.
@@ -230,14 +228,14 @@ $$ f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p $$
 
 ## Supervisionato vs non supervisionato {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
-- **supervisionato:** osserviamo sia i predittori $X$ sia la risposta $Y$, che guida l'apprendimento;
+- **Supervisionato:** osserviamo sia i predittori $X$ sia la risposta $Y$, che guida l'apprendimento;
 - **non supervisionato:** abbiamo solo $X$ e cerchiamo strutture, ad esempio gruppi di clienti;
 - esempio ISL di non supervisionato: segmentare i clienti in grandi e piccoli spenditori;
 - oggi ci concentriamo sul supervisionato, il terreno di churn e previsione vendite.
 
 ## Regressione vs classificazione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
-- dipende dalla natura della risposta $Y$;
+- Dipende dalla natura della risposta $Y$;
 - **regressione:** $Y$ quantitativa, ad esempio le vendite o il valore di un danno;
 - **classificazione:** $Y$ categoriale, ad esempio cliente fedele o infedele, frode o non frode;
 - la logistica, nonostante il nome, è un metodo di classificazione perché stima una probabilità.
@@ -262,7 +260,7 @@ $$
 
 ## Training error vs test error {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
-- il training error è l'MSE sui dati usati per addestrare;
+- Il training error è l'MSE sui dati usati per addestrare;
 - il test error è l'MSE su dati nuovi, mai visti;
 - a noi interessa solo il secondo: vogliamo generalizzare, non ripetere;
 - esempio ISL: per la borsa non conta indovinare i prezzi passati, ma quelli di domani.
@@ -272,7 +270,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="52%"}
-- simuliamo dati $Y = f(X) + \varepsilon$, conoscendo la vera $f$;
+- Simuliamo dati $Y = f(X) + \varepsilon$, conoscendo la vera $f$;
 - una parte dei punti va nel training set, una parte nel test set;
 - alleniamo i modelli sui punti grigi;
 - li giudichiamo sui punti ciano, quelli mai visti.
@@ -289,7 +287,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="42%"}
-- il modello rigido (lineare) non segue la curva;
+- Il modello rigido (lineare) non segue la curva;
 - quello equilibrato la coglie bene;
 - quello troppo flessibile insegue ogni punto, anche il rumore;
 - sul training set, più flessibilità sembra sempre meglio.
@@ -306,7 +304,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="42%"}
-- il training error cala sempre con la flessibilità;
+- Il training error cala sempre con la flessibilità;
 - il test error prima cala, poi risale: disegna una U;
 - a sinistra underfitting, a destra overfitting;
 - il minimo della U è il modello che cerchiamo.
@@ -327,7 +325,7 @@ un modello azzecca quasi perfettamente tutti i dati di addestramento.
 - C) impossibile da dire senza altre informazioni.
 
 ::: {.fragment}
-::: {.callout-tip icon=false title="risposta"}
+::: {.callout-tip icon=false title="Risposta"}
 **B**. il giudice vero è il test error: un training error quasi nullo è spesso il segnale di un modello troppo flessibile.
 :::
 :::
@@ -346,7 +344,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="44%"}
-- vogliamo bassa varianza **e** basso bias insieme;
+- Vogliamo bassa varianza **e** basso bias insieme;
 - $\sigma^2$ è l'errore irriducibile, non si tocca;
 - bias e varianza dipendono dall'algoritmo che scegliamo.
 :::
@@ -362,7 +360,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="44%"}
-- ogni tiro è il modello stimato su un campione diverso;
+- Ogni tiro è il modello stimato su un campione diverso;
 - **bias** alto: i tiri sono lontani dal centro in modo sistematico;
 - **varianza** alta: i tiri sono molto sparsi tra loro;
 - vogliamo il bersaglio in alto a sinistra: centrato e concentrato.
@@ -379,7 +377,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="46%"}
-- modelli troppo semplici: bias alto, varianza bassa (underfitting);
+- Modelli troppo semplici: bias alto, varianza bassa (underfitting);
 - modelli troppo flessibili: bias basso, varianza alta (overfitting);
 - l'errore di test minimo sta nell'equilibrio, non agli estremi;
 - vale per ogni metodo, dalla regressione alle reti profonde.
@@ -396,7 +394,7 @@ $$
 :::: {.columns}
 
 ::: {.column width="42%"}
-- più flessibilità può ridurre il bias, ma costa varianza e interpretabilità;
+- Più flessibilità può ridurre il bias, ma costa varianza e interpretabilità;
 - i modelli interpretabili stanno in alto a sinistra;
 - i molto flessibili in basso a destra;
 - non esiste il modello migliore in assoluto: in statistica non c'è un pasto gratis.
@@ -410,7 +408,7 @@ $$
 
 ## Come scegliere il punto giusto: il resampling {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
-- non possiamo usare il test set per scegliere il modello, lo falserebbe;
+- Non possiamo usare il test set per scegliere il modello, lo falserebbe;
 - validation set: si tiene da parte una fetta di dati, di solito il 25 o 30 per cento;
 - k-fold: si divide in $k$ parti, si addestra su $k-1$ e si valuta sulla restante, a rotazione;
 - LOOCV: il caso estremo con $k = n$, si lascia fuori un dato alla volta.
@@ -424,14 +422,14 @@ a cosa serve principalmente la k-fold cross-validation?
 - C) a eliminare l'errore irriducibile.
 
 ::: {.fragment}
-::: {.callout-tip icon=false title="risposta"}
+::: {.callout-tip icon=false title="Risposta"}
 **B**. stima il test error senza toccare il test set, così possiamo scegliere la flessibilità giusta.
 :::
 :::
 
 ## Take-home del blocco {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
-- l'obiettivo è generalizzare: conta il test error, non il training error;
+- L'obiettivo è generalizzare: conta il test error, non il training error;
 - più flessibilità non è sempre meglio, per via dell'overfitting;
 - bias e varianza tirano in direzioni opposte, si cerca l'equilibrio;
 - cross-validation e split train/test sono gli strumenti per trovarlo.
@@ -444,7 +442,7 @@ ISL, capitoli 3, 4, 6, 7, 8, 9 · una panoramica ragionata
 
 ## Non un catalogo, ma una mappa {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
-- non serve memorizzare ogni metodo, serve capire dove si colloca;
+- Non serve memorizzare ogni metodo, serve capire dove si colloca;
 - ogni famiglia occupa un posto sul piano flessibilità-interpretabilità;
 - l'idea ricorrente è sempre la stessa: gestire il trade-off bias-varianza;
 - partiamo dalla baseline più semplice e saliamo in flessibilità.
@@ -453,7 +451,7 @@ ISL, capitoli 3, 4, 6, 7, 8, 9 · una panoramica ragionata
 
 $$ \hat y = \hat\beta_0 + \hat\beta_1 x_1 + \dots + \hat\beta_p x_p $$
 
-- i coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui;
+- I coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui;
 - ogni $\hat\beta_j$ dice quanto pesa quel predittore, a parità degli altri;
 - esempio ISL: vendite in funzione dei budget TV, radio, volantino;
 - semplice, veloce, interpretabile: il punto di partenza, non il nemico.
@@ -483,7 +481,7 @@ $$ \log\frac{p(X)}{1-p(X)} = \beta_0 + \beta_1 X_1 + \dots $$
 :::: {.columns}
 
 ::: {.column width="48%"}
-- il classificatore ideale assegna alla classe più probabile, $\max_j \Pr(Y=j \mid X=x_0)$;
+- Il classificatore ideale assegna alla classe più probabile, $\max_j \Pr(Y=j \mid X=x_0)$;
 - non conosciamo quella probabilità, la stimiamo;
 - KNN la approssima coi $K$ vicini più prossimi;
 $$ \hat\Pr(Y=j\mid x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j) $$
@@ -514,7 +512,7 @@ $$ \hat\Pr(Y=j\mid x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j) $$
 
 ## Quando i predittori sono troppi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
-- con tanti predittori, o predittori molto correlati, i minimi quadrati diventano instabili;
+- Con tanti predittori, o predittori molto correlati, i minimi quadrati diventano instabili;
 - il modello insegue il rumore e overfitta, la varianza esplode;
 - servono pochi coefficienti grandi e affidabili, non tanti coefficienti ballerini;
 - la soluzione si chiama regolarizzazione.
@@ -523,7 +521,7 @@ $$ \hat\Pr(Y=j\mid x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j) $$
 
 $$ \min_{\beta}\ \sum_{i=1}^{n}\big(y_i-\hat y_i\big)^2 + \lambda \sum_{j=1}^{p}\beta_j^2 $$
 
-- alla somma degli errori si aggiunge una penalità $L_2$ sui coefficienti;
+- Alla somma degli errori si aggiunge una penalità $L_2$ sui coefficienti;
 - la penalità spinge i coefficienti verso lo zero, senza azzerarli;
 - il parametro $\lambda$ regola quanto si stringe, lo si sceglie in cross-validation;
 - riduce la varianza accettando un po' di bias: di nuovo il trade-off.
@@ -535,7 +533,7 @@ $$ \min_{\beta}\ \sum_{i=1}^{n}\big(y_i-\hat y_i\big)^2 + \lambda \sum_{j=1}^{p}
 ::: {.column width="44%"}
 $$ \min_{\beta}\ \sum_{i=1}^{n}\big(y_i-\hat y_i\big)^2 + \lambda \sum_{j=1}^{p}|\beta_j| $$
 
-- la penalità $L_1$ può azzerare del tutto alcuni coefficienti;
+- La penalità $L_1$ può azzerare del tutto alcuni coefficienti;
 - in pratica fa selezione delle variabili;
 - la geometria del vincolo spiega perché solo il lasso produce zeri.
 :::
@@ -555,7 +553,7 @@ avete cento predittori e sospettate che solo una decina conti davvero. volete un
 - C) minimi quadrati senza penalità.
 
 ::: {.fragment}
-::: {.callout-tip icon=false title="risposta"}
+::: {.callout-tip icon=false title="Risposta"}
 **B**, lasso: la penalità $L_1$ porta a zero i coefficienti irrilevanti, facendo selezione automatica.
 :::
 :::
@@ -565,7 +563,7 @@ avete cento predittori e sospettate che solo una decina conti davvero. volete un
 :::: {.columns}
 
 ::: {.column width="46%"}
-- a volte la relazione non è una retta, ad esempio i salari che salgono con l'età e poi calano;
+- A volte la relazione non è una retta, ad esempio i salari che salgono con l'età e poi calano;
 - polinomi: aggiungo $x^2, x^3, \dots$, ma instabili agli estremi;
 - spline: curve flessibili a tratti, molto più stabili;
 - esempio ISL: il dataset Wage, salario in funzione dell'età.
@@ -581,7 +579,7 @@ avete cento predittori e sospettate che solo una decina conti davvero. volete un
 
 $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 
-- una funzione liscia per ogni predittore, sommate insieme;
+- Una funzione liscia per ogni predittore, sommate insieme;
 - catturano relazioni non lineari mantenendo l'additività;
 - si può leggere l'effetto di ogni variabile separatamente;
 - un buon compromesso tra flessibilità e interpretabilità.
@@ -591,7 +589,7 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 :::: {.columns}
 
 ::: {.column width="42%"}
-- una sequenza di domande sì o no che divide i clienti in gruppi;
+- Una sequenza di domande sì o no che divide i clienti in gruppi;
 - molto intuitivo, facile da spiegare a chiunque;
 - ma un singolo albero è instabile e tende a overfittare;
 - da qui l'idea di combinarne molti, gli ensemble.
@@ -606,7 +604,7 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 ## Dagli alberi agli ensemble {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
 ::: {.incremental}
-- bagging: media tanti alberi addestrati su campioni diversi, abbatte la varianza;
+- Bagging: media tanti alberi addestrati su campioni diversi, abbatte la varianza;
 - random forest: bagging più decorrelazione degli alberi, di solito molto efficace;
 - boosting: alberi piccoli aggiunti in sequenza, ognuno corregge gli errori del precedente;
 - nel pomeriggio vedremo dal vivo l'albero che overfitta e la foresta che lo stabilizza.
@@ -614,7 +612,7 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 
 ## SVM: margine massimo e kernel {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
-- l'idea: separare le classi con il confine che lascia il margine più ampio;
+- L'idea: separare le classi con il confine che lascia il margine più ampio;
 - contano solo i punti vicini al confine, i vettori di supporto;
 - il trucco del kernel permette confini non lineari senza costruire nuove feature a mano;
 - efficace anche quando i predittori sono molti.
@@ -624,7 +622,7 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 :::: {.columns}
 
 ::: {.column width="42%"}
-- nessun modello è il migliore in assoluto, è il "no free lunch";
+- Nessun modello è il migliore in assoluto, è il "no free lunch";
 - a sinistra gli interpretabili, a destra i flessibili;
 - più flessibilità non è sempre meglio: dipende da dati e rumore;
 - la scelta è un compromesso guidato dall'obiettivo.
@@ -646,21 +644,21 @@ ISL, capitolo 10 · dove va a finire il continuum
 
 $$ a = g\!\left(w_0 + \sum_{j=1}^{p} w_j x_j\right) $$
 
-- un neurone fa una combinazione lineare degli input, come la regressione;
+- Un neurone fa una combinazione lineare degli input, come la regressione;
 - poi applica una funzione non lineare $g$, l'attivazione, che gli dà espressività;
 - di per sé è poco più di una regressione;
 - la potenza nasce quando se ne impilano tanti.
 
 ## Reti profonde: cosa cambia davvero {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
-- impilando strati la rete costruisce rappresentazioni sempre più astratte dei dati;
+- Impilando strati la rete costruisce rappresentazioni sempre più astratte dei dati;
 - non scegliamo noi le feature: le impara la rete, è il feature learning;
 - è una $f$ estremamente flessibile, in fondo è ancora $Y = f(X)$;
 - più flessibilità porta più potenza ma anche più rischio di overfitting.
 
 ## È ancora apprendimento statistico {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
-- stessi concetti del mattino: training e test, overfitting, regolarizzazione, validazione;
+- Stessi concetti del mattino: training e test, overfitting, regolarizzazione, validazione;
 - una rete senza regolarizzazione overfitta come un polinomio di grado troppo alto;
 - più dati e più capacità spostano il trade-off bias-varianza, non lo eliminano;
 - niente magia: gli stessi principi, su scala molto più grande.
@@ -674,7 +672,7 @@ una rete neurale profonda è governata dal trade-off bias-varianza?
 - C) solo se ha pochi strati.
 
 ::: {.fragment}
-::: {.callout-tip icon=false title="risposta"}
+::: {.callout-tip icon=false title="Risposta"}
 **B**. una rete è apprendimento statistico a tutti gli effetti: stesso trade-off, stesse difese, overfitting compreso.
 :::
 :::
@@ -688,14 +686,14 @@ una rete neurale profonda è governata dal trade-off bias-varianza?
 
 ## Transformer, LLM e chiusura della tesi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
-- i transformer scalano a miliardi di parametri e dati, e arrivano agli LLM;
+- I transformer scalano a miliardi di parametri e dati, e arrivano agli LLM;
 - ma il principio resta: stimare una funzione da esempi, minimizzando una perdita;
 - un continuum, non due mondi: dai minimi quadrati fino agli LLM;
 - "AI tradizionale" non è serie B, è la base concettuale di tutto il resto.
 
 ## Cose importanti da ricordare {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
-- conta la capacità di generalizzare, quindi il test error;
+- Conta la capacità di generalizzare, quindi il test error;
 - bias e varianza vanno bilanciati, evitando l'overfitting;
 - gli strumenti: split train/test, k-fold cross-validation, criteri con penalità;
 - lo stesso impianto regge dalla regressione lineare alle reti profonde.
@@ -749,7 +747,7 @@ i dati sono caricati via URL dal repo, quindi i notebook girano anche a casa.
 
 ## Strumenti e dati {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Riferimenti"}
 
-- scikit-learn: Pedregosa et al. (2011), *Scikit-learn: Machine Learning in Python*, JMLR;
+- Scikit-learn: Pedregosa et al. (2011), *Scikit-learn: Machine Learning in Python*, JMLR;
 - dataset canonici ISL: Auto, Default, Carseats;
 - dataset retail sintetico stile Conad: generato per questo corso, riproducibile con `data/genera_dataset.py`;
 - tutto il materiale vive in un unico repo pubblico, questo sito ne è la spina dorsale.
