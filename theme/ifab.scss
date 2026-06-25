@@ -1,0 +1,134 @@
+/*-- scss:defaults --*/
+
+// ===== Palette IFAB (dal template ufficiale) =====
+$ifab-navy:      #002060;
+$ifab-cyan:      #00ADCF;
+$ifab-lightblue: #8FD2E9;
+$ifab-slate:     #414F69;
+$ifab-grey:      #545454;
+$ifab-red:       #DC4C4C;
+
+// ===== Font: Inter come fallback web di Aptos =====
+$font-family-sans-serif: "Inter", "Aptos", "Segoe UI", system-ui, -apple-system, sans-serif !default;
+$font-family-monospace:  "JetBrains Mono", "SFMono-Regular", Consolas, monospace !default;
+
+// ===== Base RevealJS =====
+$body-bg:        #ffffff;
+$body-color:     $ifab-slate;
+$link-color:     $ifab-cyan;
+$selection-bg:   $ifab-cyan;
+$selection-color:#ffffff;
+
+// ===== Titoli =====
+$presentation-heading-font:        $font-family-sans-serif;
+$presentation-heading-color:       $ifab-navy;
+$presentation-heading-font-weight: 700;
+$presentation-h1-font-size: 2.0em;
+$presentation-h2-font-size: 1.45em;
+$presentation-h3-font-size: 1.15em;
+$presentation-font-size-root: 30px;
+
+// ===== Codice =====
+$code-block-bg: #f4f7fb;
+$code-color:    $ifab-navy;
+
+/*-- scss:rules --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ifab-navy: #002060;
+  --ifab-cyan: #00ADCF;
+  --ifab-lightblue: #8FD2E9;
+  --ifab-slate: #414F69;
+  --ifab-grey: #545454;
+  --ifab-red: #DC4C4C;
+  --ifab-topband-h: 66px;
+  --ifab-strip-h: 10px;
+}
+
+.reveal { font-family: $font-family-sans-serif; }
+
+.reveal h1, .reveal h2, .reveal h3 { letter-spacing: -0.01em; line-height: 1.1; }
+.reveal h2 {
+  border-bottom: 3px solid var(--ifab-cyan);
+  padding-bottom: .25rem;
+  margin-bottom: 1rem;
+}
+.reveal h3 { color: var(--ifab-slate); }
+
+.reveal a { color: var(--ifab-cyan); text-decoration: none; border-bottom: 1px solid rgba(0,173,207,.4); }
+.reveal a:hover { color: #007f99; }
+.reveal strong { color: var(--ifab-navy); }
+
+.reveal ul { line-height: 1.5; }
+.reveal ul li::marker { color: var(--ifab-cyan); }
+.reveal .columns { align-items: center; }
+
+// le figure di contenuto non devono mai sforare l'altezza utile della slide
+.reveal .slides > section:not(.title-slide):not(.divider) img {
+  max-height: 500px;
+  height: auto;
+}
+
+// lascia respiro sotto la fascia superiore: il titolo h2 deve stare SOTTO la fascia navy
+.reveal .slides > section:not(.title-slide):not(.divider),
+.reveal .slides > section:not(.title-slide):not(.divider) > section {
+  padding-top: 92px;
+}
+
+.reveal .MathJax, .reveal mjx-container { color: var(--ifab-navy); }
+
+// ============ decorazioni (slide di contenuto) ============
+.ifab-deco { position: fixed; inset: 0; pointer-events: none; z-index: 8; }
+
+.ifab-topband {
+  position: absolute; top: 0; left: 0; right: 0; height: var(--ifab-topband-h);
+  background: var(--ifab-navy) url('assets/title-bg-bokeh.jpeg') center 28% / cover no-repeat;
+  display: flex; align-items: center; justify-content: flex-end;
+  box-shadow: 0 2px 14px rgba(0,32,96,.28);
+}
+.ifab-topband::after { content:""; position:absolute; inset:0; background: rgba(0,32,96,.5); }
+.ifab-topband__logo { height: 30px; margin-right: 30px; position: relative; z-index: 1; }
+
+.ifab-bottomstrip {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--ifab-strip-h);
+  background: var(--ifab-cyan);
+}
+
+// ============ footer (credito Orso) ============
+.reveal .footer {
+  color: var(--ifab-grey); font-size: 14px; font-weight: 500;
+  bottom: 18px; left: 30px; right: 30px; text-align: center;
+}
+.reveal .footer *, .reveal .footer p { color: var(--ifab-grey); margin: 0; }
+
+// ============ slide titolo (fondo navy bokeh) ============
+.reveal section.title-slide :is(h1, .subtitle, .quarto-title-author, .author, .date, p) { color: #ffffff; }
+.reveal section.title-slide h1.title { font-weight: 800; font-size: 2.3em; }
+.reveal section.title-slide .subtitle { color: var(--ifab-cyan); font-weight: 600; }
+.reveal section.title-slide .author, .reveal section.title-slide .date { color: rgba(255,255,255,.82); font-weight: 500; }
+
+.ifab-title-logo {
+  position: fixed; top: 11%; left: 50%; transform: translateX(-50%);
+  height: 56px; z-index: 9; pointer-events: none;
+}
+
+// ============ slide divisorie di blocco (fondo navy bokeh) ============
+.reveal section.divider :is(h1, h2, h3, p, li, strong) { color: #ffffff; }
+.reveal section.divider :is(h1, h2) {
+  border-bottom: 0; font-weight: 800; font-size: 1.9em;
+  margin-top: 2.6em; max-width: 92%;
+}
+.reveal section.divider .divider-sub {
+  color: var(--ifab-lightblue); font-weight: 600; font-size: 1.05em; margin-top: .4rem;
+}
+
+// mostra/nascondi le decorazioni a seconda della slide attiva
+body.ifab-on-title .ifab-topband,
+body.ifab-on-title .ifab-bottomstrip,
+body.ifab-on-title .reveal .footer,
+body.ifab-on-divider .ifab-topband,
+body.ifab-on-divider .ifab-bottomstrip,
+body.ifab-on-divider .reveal .footer { display: none; }
+body:not(.ifab-on-title) .ifab-title-logo { display: none; }

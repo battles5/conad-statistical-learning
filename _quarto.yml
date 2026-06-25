@@ -1,0 +1,41 @@
+project:
+  type: default
+  output-dir: _site
+  render:
+    - index.qmd
+  resources:
+    - data/conad_retail.csv
+    - data/Auto.csv
+    - data/Default.csv
+    - data/Carseats.csv
+
+lang: it
+
+format:
+  revealjs:
+    theme: [default, theme/ifab.scss]
+    width: 1280
+    height: 720
+    margin: 0.08
+    min-scale: 0.2
+    max-scale: 2.0
+    slide-number: c/t
+    show-slide-number: all
+    transition: fade
+    transition-speed: fast
+    progress: true
+    history: true
+    hash: true
+    center: false
+    footer: "Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest)"
+    include-after-body: assets/ifab-deco.html
+    html-math-method: mathjax
+    highlight-style: github
+    code-line-numbers: true
+    fig-align: center
+    link-external-newwindow: true
+
+execute:
+  echo: true
+  warning: false
+  freeze: auto

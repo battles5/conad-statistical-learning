@@ -1,0 +1,47 @@
+<!-- Decorazioni IFAB: fascia navy bokeh in alto, logo bianco, striscia ciano in basso -->
+<div class="ifab-deco" aria-hidden="true">
+  <div class="ifab-topband">
+    <img class="ifab-topband__logo" src="assets/ifab-logo-white.svg" alt="IFAB">
+  </div>
+  <div class="ifab-bottomstrip"></div>
+</div>
+<img class="ifab-title-logo" src="assets/ifab-logo-white.svg" alt="IFAB">
+
+<script>
+(function () {
+  function current() {
+    return document.querySelector('.reveal .slides section.present');
+  }
+  function onTitle() {
+    var s = current();
+    return !!(s && s.classList.contains('title-slide'));
+  }
+  function onDivider() {
+    var s = current();
+    return !!(s && s.classList.contains('divider'));
+  }
+  function syncFooter() {
+    var s = current();
+    var f = document.querySelector('.reveal .footer');
+    if (!s || !f) return;
+    var df = s.getAttribute('data-footer');
+    if (df) f.innerHTML = df;
+  }
+  function update() {
+    document.body.classList.toggle('ifab-on-title', onTitle());
+    document.body.classList.toggle('ifab-on-divider', onDivider());
+    syncFooter();
+  }
+  function bind() {
+    if (window.Reveal && typeof Reveal.on === 'function') {
+      Reveal.on('ready', update);
+      Reveal.on('slidechanged', update);
+      update();
+    } else {
+      setTimeout(bind, 80);
+    }
+  }
+  if (document.readyState !== 'loading') bind();
+  else document.addEventListener('DOMContentLoaded', bind);
+})();
+</script>
