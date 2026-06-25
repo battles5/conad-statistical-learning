@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-06-25T11:08:42.687566</dc:date>
+    <dc:date>2026-06-25T11:29:38.436854</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -41,7 +41,7 @@ Q 70.4772 126.9504 70.4772 140.256
 L 70.4772 193.4784 
 Q 70.4772 206.784 82.53 206.784 
 z
-" clip-path="url(#p33fa949730)" style="fill: #002060; stroke: #002060; stroke-linejoin: miter"/>
+" clip-path="url(#pb0e67cf59b)" style="fill: #002060; stroke: #002060; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- $X$ -->
@@ -63,7 +63,7 @@ z
 " style="fill: #414f69; stroke: #414f69; stroke-width: 2.8; stroke-linecap: round"/>
    </g>
    <g id="text_2">
-    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(122.286953 160.389313)">natura</text>
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(121.099453 160.389313)">Natura</text>
     <!-- $f$ sconosciuta -->
     <g style="fill: #ffffff" transform="translate(87.845 183.830712)">
      <text>
@@ -103,13 +103,13 @@ z
     <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; fill: #002060" transform="translate(108.396563 312.667495)">(risposta)</text>
    </g>
    <g id="text_4">
-    <text style="font-style: italic; font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #545454" transform="translate(25.716094 335.493738)">osserviamo solo gli ingressi e le uscite,</text>
+    <text style="font-style: italic; font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #545454" transform="translate(24.532734 335.493738)">Osserviamo solo gli ingressi e le uscite,</text>
     <text style="font-style: italic; font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #545454" transform="translate(94.471172 351.636574)">non il meccanismo</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p33fa949730">
+  <clipPath id="pb0e67cf59b">
    <rect x="7.2" y="7.2" width="301.32" height="349.272"/>
   </clipPath>
  </defs>

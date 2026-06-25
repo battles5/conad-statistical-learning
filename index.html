@@ -141,7 +141,7 @@ Orso Peruzzi · Data Scientist, IFAB
 </div>
 </div>
 
-  <p class="date">25 giugno 2026</p>
+  <p class="date">26 giugno 2026</p>
 </section>
 <section id="blocco-0-apertura-la-provocazione" class="slide level2 divider" data-background-image="assets/title-bg-bokeh.jpeg" data-background-size="cover" data-background-position="center" data-background-color="#002060">
 <h2>Blocco 0 · Apertura: la provocazione</h2>
@@ -161,7 +161,7 @@ Orso Peruzzi · Data Scientist, IFAB
 <h2>“AI tradizionale”: una storia lunga due secoli</h2>
 
 <img data-src="assets/linea-tempo.svg" style="width:96.0%" alt="Linea del tempo dello statistical learning, dai minimi quadrati del 1805 al deep learning di oggi" class="r-stretch"><ul>
-<li>non è una moda recente: i minimi quadrati nascono per l’astronomia a inizio Ottocento;</li>
+<li>Non è una moda recente: i minimi quadrati nascono per l’astronomia a inizio Ottocento;</li>
 <li>ogni epoca ha aggiunto un mattone, fino alle reti profonde di oggi;</li>
 <li>“tradizionale” non vuol dire superato, vuol dire fondante.</li>
 </ul>
@@ -169,7 +169,7 @@ Orso Peruzzi · Data Scientist, IFAB
 <section id="perché-il-termine-è-fuorviante" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura">
 <h2>Perché il termine è fuorviante</h2>
 <ul>
-<li>il termine nasce per contrapporre i vecchi sistemi simbolici e a regole alle reti neurali;</li>
+<li>Il termine nasce per contrapporre i vecchi sistemi simbolici e a regole alle reti neurali;</li>
 <li>oggi viene usato a sproposito per liquidare regressioni, alberi e SVM come tecnologia minore;</li>
 <li>ISL lo dice chiaro: lo statistical learning non va visto come una serie di scatole nere;</li>
 <li>una regressione logistica e una random forest sono lo stesso paradigma di una rete: imparare dai dati.</li>
@@ -180,7 +180,7 @@ Orso Peruzzi · Data Scientist, IFAB
 <div class="columns">
 <div class="column" style="width:48%;">
 <ul>
-<li>l’intelligenza artificiale è l’insieme più ampio;</li>
+<li>L’intelligenza artificiale è l’insieme più ampio;</li>
 <li>il machine learning ne è il cuore moderno, e coincide con l’apprendimento statistico;</li>
 <li>il deep learning è un sottoinsieme del machine learning, non un campo separato;</li>
 <li>“AI tradizionale”, semmai, sono i vecchi sistemi a regole.</li>
@@ -189,33 +189,28 @@ Orso Peruzzi · Data Scientist, IFAB
 <p><img data-src="assets/mappa-ai-ml.svg" style="width:88.0%" alt="Cerchi concentrici: l'intelligenza artificiale contiene il machine learning, che coincide con l'apprendimento statistico e contiene il deep learning"></p>
 </div></div>
 </section>
-<section id="la-giornata-in-due-tempi" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura">
-<h2>La giornata in due tempi</h2>
+<section id="il-programma-della-giornata" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura">
+<h2>Il programma della giornata</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="mattina-lintuizione">Mattina, l’intuizione</h3>
+<h3 id="mattina-teoria-4-ore">Mattina · teoria (4 ore)</h3>
 <ul>
-<li>da dove nasce l’idea di “AI tradizionale”;</li>
-<li>cos’è davvero l’apprendimento statistico;</li>
-<li>il cuore di tutto: il trade-off bias-varianza;</li>
-<li>le famiglie di modelli e le reti neurali.</li>
+<li>Apertura: perché “AI tradizionale” è un’etichetta fuorviante;</li>
+<li>dai modelli statistici allo statistical learning, l’equazione <span class="math inline">\(Y = f(X) + \varepsilon\)</span>;</li>
+<li>il cuore del corso: errore, overfitting e trade-off bias-varianza;</li>
+<li>le famiglie di modelli: lineare, regolarizzazione, alberi, ensemble, SVM;</li>
+<li>reti neurali e la big picture, fino agli LLM.</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<h3 id="pomeriggio-le-mani-sui-dati">Pomeriggio, le mani sui dati</h3>
+<h3 id="pomeriggio-pratica-4-ore">Pomeriggio · pratica (4 ore)</h3>
 <ul>
-<li>code-along guidato su Colab;</li>
-<li>gli stessi concetti, toccati con mano;</li>
-<li>regressione, classificazione, alberi, ensemble;</li>
-<li>un caso retail in stile Conad.</li>
+<li>NB0, setup su Colab e prima previsione;</li>
+<li>NB1, regressione e bias-varianza resi visibili;</li>
+<li>NB2, classificazione, regolarizzazione e cross-validation;</li>
+<li>NB3, alberi, ensemble e il caso retail Conad;</li>
+<li>NB4, demo di una piccola rete neurale.</li>
 </ul>
 </div></div>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>filo rosso: un unico continuum, dai minimi quadrati ai modelli profondi.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="blocco-1-dal-modello-statistico-allo-statistical-learning" class="slide level2 divider" data-background-image="assets/title-bg-bokeh.jpeg" data-background-size="cover" data-background-position="center" data-background-color="#002060">
 <h2>Blocco 1 · Dal modello statistico allo statistical learning</h2>
@@ -239,7 +234,7 @@ Orso Peruzzi · Data Scientist, IFAB
 <section id="lo-schema-comune-risposta-e-predittori" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>Lo schema comune: risposta e predittori</h2>
 <ul>
-<li>c’è una <strong>risposta</strong> <span class="math inline">\(Y\)</span>, il fenomeno di interesse, ad esempio le vendite di un prodotto;</li>
+<li>C’è una <strong>risposta</strong> <span class="math inline">\(Y\)</span>, il fenomeno di interesse, ad esempio le vendite di un prodotto;</li>
 <li>ci sono dei <strong>predittori</strong> <span class="math inline">\(X_1, X_2, \dots, X_p\)</span>, le informazioni note;</li>
 <li>esempio ISL, dataset Advertising: <span class="math inline">\(Y\)</span> sono le vendite, <span class="math inline">\(X_1, X_2, X_3\)</span> i budget su TV, radio, volantino;</li>
 <li>la risposta ha tanti nomi (output, target, variabile dipendente), i predittori altrettanti (input, feature, covariate).</li>
@@ -279,7 +274,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="primo-scopo-predizione" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>Primo scopo: predizione</h2>
 <ul>
-<li>a volte abbiamo gli input <span class="math inline">\(X\)</span> e ci serve solo una buona previsione di <span class="math inline">\(Y\)</span>;</li>
+<li>A volte abbiamo gli input <span class="math inline">\(X\)</span> e ci serve solo una buona previsione di <span class="math inline">\(Y\)</span>;</li>
 <li><span class="math inline">\(\hat f\)</span> può essere una scatola nera: non importa la sua forma, conta che <span class="math inline">\(\hat f(X)\)</span> sia vicino a <span class="math inline">\(Y\)</span>;</li>
 <li>esempio ISL: una campagna di marketing diretto, vogliamo solo prevedere chi risponde;</li>
 <li>esempio Conad: quanto spenderà questo cliente nei prossimi dodici mesi?.</li>
@@ -310,11 +305,11 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </ol></li>
 </ul>
 <div class="fragment">
-<div title="risposta">
+<div title="Risposta">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>risposta</strong></p>
+<p><strong>Risposta</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>B</strong>, interpretazione: ci interessa il legame tra un predittore e la risposta, non solo il numero finale.</p>
@@ -329,7 +324,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:56%;">
 <ul>
-<li><strong>modeling</strong>, la statistica classica: postulo un meccanismo generatore dei dati, una forma per <span class="math inline">\(f\)</span> nota a meno di pochi parametri, e la uso per spiegare;</li>
+<li><strong>Modeling</strong>, la statistica classica: postulo un meccanismo generatore dei dati, una forma per <span class="math inline">\(f\)</span> nota a meno di pochi parametri, e la uso per spiegare;</li>
 <li><strong>learning</strong>: tratto <span class="math inline">\(f\)</span> come una scatola nera e cerco un algoritmo che la approssimi bene, con priorità alla previsione;</li>
 <li>non è un confine netto, ma uno spostamento di enfasi, dalle assunzioni ai dati.</li>
 </ul>
@@ -343,7 +338,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <p>“Essentially, all models are wrong, but some are useful.” (G. Box)</p>
 </blockquote>
 <ul>
-<li>ogni modello è una semplificazione della realtà, può essere sbagliato ma utile;</li>
+<li>Ogni modello è una semplificazione della realtà, può essere sbagliato ma utile;</li>
 <li>il rasoio di Occam: tra modelli che spiegano i dati quasi ugualmente bene, scegli il più semplice;</li>
 <li>assunzioni comode (normalità, linearità, indipendenza) a volte non bastano a prevedere bene;</li>
 <li>da qui la spinta verso metodi più flessibili, lo statistical learning.</li>
@@ -355,14 +350,14 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="column" style="width:50%;">
 <h3 id="parametrico">Parametrico</h3>
 <ul>
-<li>assumo una forma, ad esempio lineare; <span class="math display">\[ f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \]</span></li>
-<li>riduco tutto a stimare i <span class="math inline">\(\beta\)</span>;</li>
+<li>Assumo una forma, ad esempio lineare; <span class="math display">\[ f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \]</span></li>
+<li>Riduco tutto a stimare i <span class="math inline">\(\beta\)</span>;</li>
 <li>semplice, ma se la forma è sbagliata la stima è scadente.</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="non-parametrico">Non parametrico</h3>
 <ul>
-<li>non impongo una forma a <span class="math inline">\(f\)</span>;</li>
+<li>Non impongo una forma a <span class="math inline">\(f\)</span>;</li>
 <li>la lascio decidere ai dati, con grande flessibilità;</li>
 <li>si adatta a tante forme diverse;</li>
 <li>ma servono molti dati, e può overfittare.</li>
@@ -372,7 +367,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="supervisionato-vs-non-supervisionato" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>Supervisionato vs non supervisionato</h2>
 <ul>
-<li><strong>supervisionato:</strong> osserviamo sia i predittori <span class="math inline">\(X\)</span> sia la risposta <span class="math inline">\(Y\)</span>, che guida l’apprendimento;</li>
+<li><strong>Supervisionato:</strong> osserviamo sia i predittori <span class="math inline">\(X\)</span> sia la risposta <span class="math inline">\(Y\)</span>, che guida l’apprendimento;</li>
 <li><strong>non supervisionato:</strong> abbiamo solo <span class="math inline">\(X\)</span> e cerchiamo strutture, ad esempio gruppi di clienti;</li>
 <li>esempio ISL di non supervisionato: segmentare i clienti in grandi e piccoli spenditori;</li>
 <li>oggi ci concentriamo sul supervisionato, il terreno di churn e previsione vendite.</li>
@@ -381,7 +376,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="regressione-vs-classificazione" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>Regressione vs classificazione</h2>
 <ul>
-<li>dipende dalla natura della risposta <span class="math inline">\(Y\)</span>;</li>
+<li>Dipende dalla natura della risposta <span class="math inline">\(Y\)</span>;</li>
 <li><strong>regressione:</strong> <span class="math inline">\(Y\)</span> quantitativa, ad esempio le vendite o il valore di un danno;</li>
 <li><strong>classificazione:</strong> <span class="math inline">\(Y\)</span> categoriale, ad esempio cliente fedele o infedele, frode o non frode;</li>
 <li>la logistica, nonostante il nome, è un metodo di classificazione perché stima una probabilità.</li>
@@ -408,7 +403,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="training-error-vs-test-error" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Training error vs test error</h2>
 <ul>
-<li>il training error è l’MSE sui dati usati per addestrare;</li>
+<li>Il training error è l’MSE sui dati usati per addestrare;</li>
 <li>il test error è l’MSE su dati nuovi, mai visti;</li>
 <li>a noi interessa solo il secondo: vogliamo generalizzare, non ripetere;</li>
 <li>esempio ISL: per la borsa non conta indovinare i prezzi passati, ma quelli di domani.</li>
@@ -419,7 +414,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:52%;">
 <ul>
-<li>simuliamo dati <span class="math inline">\(Y = f(X) + \varepsilon\)</span>, conoscendo la vera <span class="math inline">\(f\)</span>;</li>
+<li>Simuliamo dati <span class="math inline">\(Y = f(X) + \varepsilon\)</span>, conoscendo la vera <span class="math inline">\(f\)</span>;</li>
 <li>una parte dei punti va nel training set, una parte nel test set;</li>
 <li>alleniamo i modelli sui punti grigi;</li>
 <li>li giudichiamo sui punti ciano, quelli mai visti.</li>
@@ -433,7 +428,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>il modello rigido (lineare) non segue la curva;</li>
+<li>Il modello rigido (lineare) non segue la curva;</li>
 <li>quello equilibrato la coglie bene;</li>
 <li>quello troppo flessibile insegue ogni punto, anche il rumore;</li>
 <li>sul training set, più flessibilità sembra sempre meglio.</li>
@@ -447,7 +442,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>il training error cala sempre con la flessibilità;</li>
+<li>Il training error cala sempre con la flessibilità;</li>
 <li>il test error prima cala, poi risale: disegna una U;</li>
 <li>a sinistra underfitting, a destra overfitting;</li>
 <li>il minimo della U è il modello che cerchiamo.</li>
@@ -471,11 +466,11 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </ol></li>
 </ul>
 <div class="fragment">
-<div title="risposta">
+<div title="Risposta">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>risposta</strong></p>
+<p><strong>Risposta</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>B</strong>. il giudice vero è il test error: un training error quasi nullo è spesso il segnale di un modello troppo flessibile.</p>
@@ -497,7 +492,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:44%;">
 <ul>
-<li>vogliamo bassa varianza <strong>e</strong> basso bias insieme;</li>
+<li>Vogliamo bassa varianza <strong>e</strong> basso bias insieme;</li>
 <li><span class="math inline">\(\sigma^2\)</span> è l’errore irriducibile, non si tocca;</li>
 <li>bias e varianza dipendono dall’algoritmo che scegliamo.</li>
 </ul>
@@ -510,7 +505,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:44%;">
 <ul>
-<li>ogni tiro è il modello stimato su un campione diverso;</li>
+<li>Ogni tiro è il modello stimato su un campione diverso;</li>
 <li><strong>bias</strong> alto: i tiri sono lontani dal centro in modo sistematico;</li>
 <li><strong>varianza</strong> alta: i tiri sono molto sparsi tra loro;</li>
 <li>vogliamo il bersaglio in alto a sinistra: centrato e concentrato.</li>
@@ -524,7 +519,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:46%;">
 <ul>
-<li>modelli troppo semplici: bias alto, varianza bassa (underfitting);</li>
+<li>Modelli troppo semplici: bias alto, varianza bassa (underfitting);</li>
 <li>modelli troppo flessibili: bias basso, varianza alta (overfitting);</li>
 <li>l’errore di test minimo sta nell’equilibrio, non agli estremi;</li>
 <li>vale per ogni metodo, dalla regressione alle reti profonde.</li>
@@ -538,7 +533,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>più flessibilità può ridurre il bias, ma costa varianza e interpretabilità;</li>
+<li>Più flessibilità può ridurre il bias, ma costa varianza e interpretabilità;</li>
 <li>i modelli interpretabili stanno in alto a sinistra;</li>
 <li>i molto flessibili in basso a destra;</li>
 <li>non esiste il modello migliore in assoluto: in statistica non c’è un pasto gratis.</li>
@@ -550,7 +545,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="come-scegliere-il-punto-giusto-il-resampling" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Come scegliere il punto giusto: il resampling</h2>
 <ul>
-<li>non possiamo usare il test set per scegliere il modello, lo falserebbe;</li>
+<li>Non possiamo usare il test set per scegliere il modello, lo falserebbe;</li>
 <li>validation set: si tiene da parte una fetta di dati, di solito il 25 o 30 per cento;</li>
 <li>k-fold: si divide in <span class="math inline">\(k\)</span> parti, si addestra su <span class="math inline">\(k-1\)</span> e si valuta sulla restante, a rotazione;</li>
 <li>LOOCV: il caso estremo con <span class="math inline">\(k = n\)</span>, si lascia fuori un dato alla volta.</li>
@@ -571,11 +566,11 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </ol></li>
 </ul>
 <div class="fragment">
-<div title="risposta">
+<div title="Risposta">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>risposta</strong></p>
+<p><strong>Risposta</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>B</strong>. stima il test error senza toccare il test set, così possiamo scegliere la flessibilità giusta.</p>
@@ -588,7 +583,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="take-home-del-blocco" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Take-home del blocco</h2>
 <ul>
-<li>l’obiettivo è generalizzare: conta il test error, non il training error;</li>
+<li>L’obiettivo è generalizzare: conta il test error, non il training error;</li>
 <li>più flessibilità non è sempre meglio, per via dell’overfitting;</li>
 <li>bias e varianza tirano in direzioni opposte, si cerca l’equilibrio;</li>
 <li>cross-validation e split train/test sono gli strumenti per trovarlo.</li>
@@ -603,7 +598,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="non-un-catalogo-ma-una-mappa" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>Non un catalogo, ma una mappa</h2>
 <ul>
-<li>non serve memorizzare ogni metodo, serve capire dove si colloca;</li>
+<li>Non serve memorizzare ogni metodo, serve capire dove si colloca;</li>
 <li>ogni famiglia occupa un posto sul piano flessibilità-interpretabilità;</li>
 <li>l’idea ricorrente è sempre la stessa: gestire il trade-off bias-varianza;</li>
 <li>partiamo dalla baseline più semplice e saliamo in flessibilità.</li>
@@ -613,7 +608,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <h2>La baseline interpretabile: regressione lineare</h2>
 <p><span class="math display">\[ \hat y = \hat\beta_0 + \hat\beta_1 x_1 + \dots + \hat\beta_p x_p \]</span></p>
 <ul>
-<li>i coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui;</li>
+<li>I coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui;</li>
 <li>ogni <span class="math inline">\(\hat\beta_j\)</span> dice quanto pesa quel predittore, a parità degli altri;</li>
 <li>esempio ISL: vendite in funzione dei budget TV, radio, volantino;</li>
 <li>semplice, veloce, interpretabile: il punto di partenza, non il nemico.</li>
@@ -639,7 +634,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:48%;">
 <ul>
-<li>il classificatore ideale assegna alla classe più probabile, <span class="math inline">\(\max_j \Pr(Y=j \mid X=x_0)\)</span>;</li>
+<li>Il classificatore ideale assegna alla classe più probabile, <span class="math inline">\(\max_j \Pr(Y=j \mid X=x_0)\)</span>;</li>
 <li>non conosciamo quella probabilità, la stimiamo;</li>
 <li>KNN la approssima coi <span class="math inline">\(K\)</span> vicini più prossimi; <span class="math display">\[ \hat\Pr(Y=j\mid x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j) \]</span></li>
 </ul>
@@ -664,7 +659,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="quando-i-predittori-sono-troppi" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>Quando i predittori sono troppi</h2>
 <ul>
-<li>con tanti predittori, o predittori molto correlati, i minimi quadrati diventano instabili;</li>
+<li>Con tanti predittori, o predittori molto correlati, i minimi quadrati diventano instabili;</li>
 <li>il modello insegue il rumore e overfitta, la varianza esplode;</li>
 <li>servono pochi coefficienti grandi e affidabili, non tanti coefficienti ballerini;</li>
 <li>la soluzione si chiama regolarizzazione.</li>
@@ -674,7 +669,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <h2>Regolarizzazione: ridge</h2>
 <p><span class="math display">\[ \min_{\beta}\ \sum_{i=1}^{n}\big(y_i-\hat y_i\big)^2 + \lambda \sum_{j=1}^{p}\beta_j^2 \]</span></p>
 <ul>
-<li>alla somma degli errori si aggiunge una penalità <span class="math inline">\(L_2\)</span> sui coefficienti;</li>
+<li>Alla somma degli errori si aggiunge una penalità <span class="math inline">\(L_2\)</span> sui coefficienti;</li>
 <li>la penalità spinge i coefficienti verso lo zero, senza azzerarli;</li>
 <li>il parametro <span class="math inline">\(\lambda\)</span> regola quanto si stringe, lo si sceglie in cross-validation;</li>
 <li>riduce la varianza accettando un po’ di bias: di nuovo il trade-off.</li>
@@ -686,7 +681,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="column" style="width:44%;">
 <p><span class="math display">\[ \min_{\beta}\ \sum_{i=1}^{n}\big(y_i-\hat y_i\big)^2 + \lambda \sum_{j=1}^{p}|\beta_j| \]</span></p>
 <ul>
-<li>la penalità <span class="math inline">\(L_1\)</span> può azzerare del tutto alcuni coefficienti;</li>
+<li>La penalità <span class="math inline">\(L_1\)</span> può azzerare del tutto alcuni coefficienti;</li>
 <li>in pratica fa selezione delle variabili;</li>
 <li>la geometria del vincolo spiega perché solo il lasso produce zeri.</li>
 </ul>
@@ -709,11 +704,11 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </ol></li>
 </ul>
 <div class="fragment">
-<div title="risposta">
+<div title="Risposta">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>risposta</strong></p>
+<p><strong>Risposta</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>B</strong>, lasso: la penalità <span class="math inline">\(L_1\)</span> porta a zero i coefficienti irrilevanti, facendo selezione automatica.</p>
@@ -728,7 +723,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:46%;">
 <ul>
-<li>a volte la relazione non è una retta, ad esempio i salari che salgono con l’età e poi calano;</li>
+<li>A volte la relazione non è una retta, ad esempio i salari che salgono con l’età e poi calano;</li>
 <li>polinomi: aggiungo <span class="math inline">\(x^2, x^3, \dots\)</span>, ma instabili agli estremi;</li>
 <li>spline: curve flessibili a tratti, molto più stabili;</li>
 <li>esempio ISL: il dataset Wage, salario in funzione dell’età.</li>
@@ -741,7 +736,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <h2>GAM, modelli additivi generalizzati</h2>
 <p><span class="math display">\[ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon \]</span></p>
 <ul>
-<li>una funzione liscia per ogni predittore, sommate insieme;</li>
+<li>Una funzione liscia per ogni predittore, sommate insieme;</li>
 <li>catturano relazioni non lineari mantenendo l’additività;</li>
 <li>si può leggere l’effetto di ogni variabile separatamente;</li>
 <li>un buon compromesso tra flessibilità e interpretabilità.</li>
@@ -752,7 +747,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>una sequenza di domande sì o no che divide i clienti in gruppi;</li>
+<li>Una sequenza di domande sì o no che divide i clienti in gruppi;</li>
 <li>molto intuitivo, facile da spiegare a chiunque;</li>
 <li>ma un singolo albero è instabile e tende a overfittare;</li>
 <li>da qui l’idea di combinarne molti, gli ensemble.</li>
@@ -764,7 +759,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="dagli-alberi-agli-ensemble" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>Dagli alberi agli ensemble</h2>
 <ul>
-<li class="fragment">bagging: media tanti alberi addestrati su campioni diversi, abbatte la varianza;</li>
+<li class="fragment">Bagging: media tanti alberi addestrati su campioni diversi, abbatte la varianza;</li>
 <li class="fragment">random forest: bagging più decorrelazione degli alberi, di solito molto efficace;</li>
 <li class="fragment">boosting: alberi piccoli aggiunti in sequenza, ognuno corregge gli errori del precedente;</li>
 <li class="fragment">nel pomeriggio vedremo dal vivo l’albero che overfitta e la foresta che lo stabilizza.</li>
@@ -773,7 +768,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="svm-margine-massimo-e-kernel" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>SVM: margine massimo e kernel</h2>
 <ul>
-<li>l’idea: separare le classi con il confine che lascia il margine più ampio;</li>
+<li>L’idea: separare le classi con il confine che lascia il margine più ampio;</li>
 <li>contano solo i punti vicini al confine, i vettori di supporto;</li>
 <li>il trucco del kernel permette confini non lineari senza costruire nuove feature a mano;</li>
 <li>efficace anche quando i predittori sono molti.</li>
@@ -784,7 +779,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>nessun modello è il migliore in assoluto, è il “no free lunch”;</li>
+<li>Nessun modello è il migliore in assoluto, è il “no free lunch”;</li>
 <li>a sinistra gli interpretabili, a destra i flessibili;</li>
 <li>più flessibilità non è sempre meglio: dipende da dati e rumore;</li>
 <li>la scelta è un compromesso guidato dall’obiettivo.</li>
@@ -803,7 +798,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <h2>Il neurone: una regressione vestita a festa</h2>
 <p><span class="math display">\[ a = g\!\left(w_0 + \sum_{j=1}^{p} w_j x_j\right) \]</span></p>
 <ul>
-<li>un neurone fa una combinazione lineare degli input, come la regressione;</li>
+<li>Un neurone fa una combinazione lineare degli input, come la regressione;</li>
 <li>poi applica una funzione non lineare <span class="math inline">\(g\)</span>, l’attivazione, che gli dà espressività;</li>
 <li>di per sé è poco più di una regressione;</li>
 <li>la potenza nasce quando se ne impilano tanti.</li>
@@ -812,7 +807,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="reti-profonde-cosa-cambia-davvero" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>Reti profonde: cosa cambia davvero</h2>
 <ul>
-<li>impilando strati la rete costruisce rappresentazioni sempre più astratte dei dati;</li>
+<li>Impilando strati la rete costruisce rappresentazioni sempre più astratte dei dati;</li>
 <li>non scegliamo noi le feature: le impara la rete, è il feature learning;</li>
 <li>è una <span class="math inline">\(f\)</span> estremamente flessibile, in fondo è ancora <span class="math inline">\(Y = f(X)\)</span>;</li>
 <li>più flessibilità porta più potenza ma anche più rischio di overfitting.</li>
@@ -821,7 +816,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="è-ancora-apprendimento-statistico" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>È ancora apprendimento statistico</h2>
 <ul>
-<li>stessi concetti del mattino: training e test, overfitting, regolarizzazione, validazione;</li>
+<li>Stessi concetti del mattino: training e test, overfitting, regolarizzazione, validazione;</li>
 <li>una rete senza regolarizzazione overfitta come un polinomio di grado troppo alto;</li>
 <li>più dati e più capacità spostano il trade-off bias-varianza, non lo eliminano;</li>
 <li>niente magia: gli stessi principi, su scala molto più grande.</li>
@@ -842,11 +837,11 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </ol></li>
 </ul>
 <div class="fragment">
-<div title="risposta">
+<div title="Risposta">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>risposta</strong></p>
+<p><strong>Risposta</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>B</strong>. una rete è apprendimento statistico a tutti gli effetti: stesso trade-off, stesse difese, overfitting compreso.</p>
@@ -867,7 +862,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="transformer-llm-e-chiusura-della-tesi" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>Transformer, LLM e chiusura della tesi</h2>
 <ul>
-<li>i transformer scalano a miliardi di parametri e dati, e arrivano agli LLM;</li>
+<li>I transformer scalano a miliardi di parametri e dati, e arrivano agli LLM;</li>
 <li>ma il principio resta: stimare una funzione da esempi, minimizzando una perdita;</li>
 <li>un continuum, non due mondi: dai minimi quadrati fino agli LLM;</li>
 <li>“AI tradizionale” non è serie B, è la base concettuale di tutto il resto.</li>
@@ -876,7 +871,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="cose-importanti-da-ricordare" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>Cose importanti da ricordare</h2>
 <ul>
-<li>conta la capacità di generalizzare, quindi il test error;</li>
+<li>Conta la capacità di generalizzare, quindi il test error;</li>
 <li>bias e varianza vanno bilanciati, evitando l’overfitting;</li>
 <li>gli strumenti: split train/test, k-fold cross-validation, criteri con penalità;</li>
 <li>lo stesso impianto regge dalla regressione lineare alle reti profonde.</li>
@@ -937,7 +932,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="strumenti-e-dati" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Riferimenti">
 <h2>Strumenti e dati</h2>
 <ul>
-<li>scikit-learn: Pedregosa et al.&nbsp;(2011), <em>Scikit-learn: Machine Learning in Python</em>, JMLR;</li>
+<li>Scikit-learn: Pedregosa et al.&nbsp;(2011), <em>Scikit-learn: Machine Learning in Python</em>, JMLR;</li>
 <li>dataset canonici ISL: Auto, Default, Carseats;</li>
 <li>dataset retail sintetico stile Conad: generato per questo corso, riproducibile con <code>data/genera_dataset.py</code>;</li>
 <li>tutto il materiale vive in un unico repo pubblico, questo sito ne è la spina dorsale.</li>
