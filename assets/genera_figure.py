@@ -30,6 +30,12 @@ plt.rcParams.update({
     "axes.labelcolor": SLATE,
     "xtick.color": SLATE,
     "ytick.color": SLATE,
+    "font.size": 13,
+    "axes.titlesize": 16,
+    "axes.labelsize": 14,
+    "legend.fontsize": 13,
+    "xtick.labelsize": 12.5,
+    "ytick.labelsize": 12.5,
 })
 
 
@@ -49,13 +55,13 @@ def mappa_ai_ml():
     ax.add_patch(Circle((0.5, 0.34), 0.17, facecolor=NAVY, edgecolor=NAVY, lw=1.6))
 
     ax.text(0.5, 0.93, "Intelligenza artificiale", ha="center", va="center",
-            fontsize=15, fontweight="bold", color=NAVY)
+            fontsize=19.5, fontweight="bold", color=NAVY)
     ax.text(0.5, 0.69, "Machine learning\n= apprendimento statistico", ha="center", va="center",
-            fontsize=13, fontweight="bold", color=NAVY)
+            fontsize=16.9, fontweight="bold", color=NAVY)
     ax.text(0.5, 0.34, "Deep\nlearning", ha="center", va="center",
-            fontsize=12, fontweight="bold", color="white")
+            fontsize=15.6, fontweight="bold", color="white")
     ax.text(0.18, 0.14, "AI simbolica,\nsistemi a regole", ha="center", va="center",
-            fontsize=10.5, color=SLATE, style="italic")
+            fontsize=13.7, color=SLATE, style="italic")
 
     ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
     ax.set_aspect("equal")
@@ -79,11 +85,11 @@ def y_fx():
         ax.plot([xi, xi], [f(xi), yi], color=RED, lw=1.3, ls=":", zorder=2)
     xi, yi = x[5], y[5]
     ax.annotate(r"$\varepsilon$", (xi, (f(xi) + yi) / 2), color=RED,
-                fontsize=16, fontweight="bold", xytext=(8, 0), textcoords="offset points")
+                fontsize=20.8, fontweight="bold", xytext=(8, 0), textcoords="offset points")
 
-    ax.set_xlabel("X  (predittore)", fontsize=12)
-    ax.set_ylabel("Y  (risposta)", fontsize=12)
-    ax.legend(frameon=False, fontsize=11, loc="upper left")
+    ax.set_xlabel("X  (predittore)", fontsize=15.6)
+    ax.set_ylabel("Y  (risposta)", fontsize=15.6)
+    ax.legend(frameon=False, fontsize=14.3, loc="upper left")
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_xticks([]); ax.set_yticks([])
     save(fig, "y-fx-illustrazione.svg")
@@ -108,15 +114,15 @@ def flessibilita_interpretabilita():
     for nome, fx, it, dx, dy, ha in metodi:
         ax.scatter(fx, it, s=130, color=CYAN, edgecolor=NAVY, lw=1.5, zorder=3)
         ax.annotate(nome, (fx, it), xytext=(dx, dy), textcoords="offset points",
-                    ha=ha, va="center", fontsize=10.5, color=NAVY, fontweight="bold")
+                    ha=ha, va="center", fontsize=13.7, color=NAVY, fontweight="bold")
 
     ax.annotate("", xy=(1.05, 0), xytext=(0, 0),
                 arrowprops=dict(arrowstyle="->", color=SLATE, lw=1.6))
     ax.annotate("", xy=(0, 1.05), xytext=(0, 0),
                 arrowprops=dict(arrowstyle="->", color=SLATE, lw=1.6))
-    ax.text(0.52, -0.07, "Flessibilità  (bassa verso alta)", ha="center", fontsize=12, color=SLATE)
+    ax.text(0.52, -0.07, "Flessibilità  (bassa verso alta)", ha="center", fontsize=15.6, color=SLATE)
     ax.text(-0.05, 0.52, "Interpretabilità  (bassa verso alta)", va="center", rotation=90,
-            fontsize=12, color=SLATE)
+            fontsize=15.6, color=SLATE)
 
     ax.set_xlim(-0.02, 1.15); ax.set_ylim(-0.02, 1.1); ax.axis("off")
     save(fig, "flessibilita-interpretabilita.svg")
@@ -136,12 +142,12 @@ def ridge_lasso():
                                  fill=False, edgecolor=CYAN, lw=1.4, alpha=0.9))
         ax.scatter(*bhat, color=NAVY, s=45, zorder=5)
         ax.annotate(r"$\hat\beta$ (minimi quadrati)", bhat, xytext=(6, 8),
-                    textcoords="offset points", fontsize=10, color=NAVY)
+                    textcoords="offset points", fontsize=13.0, color=NAVY)
         ax.axhline(0, color=GREY, lw=1); ax.axvline(0, color=GREY, lw=1)
         ax.set_xlim(-0.8, 3.2); ax.set_ylim(-0.8, 2.8)
         ax.set_aspect("equal"); ax.axis("off")
-        ax.text(3.15, -0.18, r"$\beta_1$", fontsize=12, color=SLATE)
-        ax.text(-0.2, 2.75, r"$\beta_2$", fontsize=12, color=SLATE)
+        ax.text(3.15, -0.18, r"$\beta_1$", fontsize=15.6, color=SLATE)
+        ax.text(-0.2, 2.75, r"$\beta_2$", fontsize=15.6, color=SLATE)
 
     # lasso: vincolo a rombo (L1), soluzione su un vertice -> un coefficiente a zero
     ax = axes[0]
@@ -150,8 +156,8 @@ def ridge_lasso():
     contorni(ax)
     ax.scatter(0, s, color=RED, s=70, zorder=6)
     ax.annotate("soluzione:\n" + r"$\beta_1=0$", (0, s), xytext=(-70, 6),
-                textcoords="offset points", fontsize=10, color=RED, fontweight="bold")
-    ax.set_title("Lasso  (vincolo L1)", color=NAVY, fontsize=13, fontweight="bold")
+                textcoords="offset points", fontsize=13.0, color=RED, fontweight="bold")
+    ax.set_title("Lasso  (vincolo L1)", color=NAVY, fontsize=16.9, fontweight="bold")
 
     # ridge: vincolo a cerchio (L2), soluzione mai esattamente su un asse
     ax = axes[1]
@@ -159,9 +165,9 @@ def ridge_lasso():
     contorni(ax)
     ax.scatter(0.62, 0.78, color=RED, s=70, zorder=6)
     ax.annotate("soluzione:\nentrambi piccoli,\nnessuno a zero", (0.62, 0.78),
-                xytext=(-95, -38), textcoords="offset points", fontsize=10,
+                xytext=(-95, -38), textcoords="offset points", fontsize=13.0,
                 color=RED, fontweight="bold")
-    ax.set_title("Ridge  (vincolo L2)", color=NAVY, fontsize=13, fontweight="bold")
+    ax.set_title("Ridge  (vincolo L2)", color=NAVY, fontsize=16.9, fontweight="bold")
 
     save(fig, "ridge-lasso.svg")
 
@@ -170,23 +176,23 @@ def ridge_lasso():
 # 5) Genealogia dei modelli profondi: e' sempre statistical learning
 # ---------------------------------------------------------------------------
 def genealogia():
-    fig, ax = plt.subplots(figsize=(9.6, 5.0))
+    fig, ax = plt.subplots(figsize=(11.5, 5.2))
 
-    def box(x, y, testo, fill, fg, w=1.9, h=0.9):
+    def box(x, y, testo, fill, fg, w=2.3, h=0.95):
         ax.add_patch(plt.matplotlib.patches.FancyBboxPatch(
             (x - w / 2, y - h / 2), w, h,
             boxstyle="round,pad=0.04,rounding_size=0.12",
             facecolor=fill, edgecolor=NAVY, lw=1.6, zorder=3))
-        ax.text(x, y, testo, ha="center", va="center", fontsize=10.5,
+        ax.text(x, y, testo, ha="center", va="center", fontsize=13.7,
                 color=fg, fontweight="bold", zorder=4)
 
     def freccia(p1, p2):
         ax.add_patch(FancyArrowPatch(p1, p2, arrowstyle="-|>", mutation_scale=14,
                                      color=SLATE, lw=1.6, shrinkA=14, shrinkB=14, zorder=2))
 
-    P = (1.0, 3.0); M = (3.3, 3.0)
-    CNN = (5.9, 4.6); RNN = (5.9, 3.0); GAN = (5.9, 1.4)
-    TR = (8.4, 3.0); LLM = (10.6, 3.0)
+    P = (1.3, 3.0); M = (4.0, 3.0)
+    CNN = (6.7, 4.7); RNN = (6.7, 3.0); GAN = (6.7, 1.3)
+    TR = (9.4, 3.0); LLM = (11.8, 3.0)
 
     for a, b in [(P, M), (M, CNN), (M, RNN), (M, GAN), (RNN, TR), (TR, LLM)]:
         freccia(a, b)
@@ -196,10 +202,10 @@ def genealogia():
     box(*CNN, "CNN\nimmagini", LIGHT, NAVY)
     box(*RNN, "RNN, LSTM\nsequenze", LIGHT, NAVY)
     box(*GAN, "GAN\ngenerazione", LIGHT, NAVY)
-    box(*TR, "Transformer\nattenzione", NAVY, "white", w=2.0)
-    box(*LLM, "LLM", NAVY, "white", w=1.3)
+    box(*TR, "Transformer\nattenzione", NAVY, "white", w=2.5)
+    box(*LLM, "LLM", NAVY, "white", w=1.7)
 
-    ax.set_xlim(0.3, 11.5); ax.set_ylim(0.5, 5.5); ax.axis("off")
+    ax.set_xlim(0.2, 13.0); ax.set_ylim(0.4, 5.6); ax.axis("off")
     save(fig, "genealogia-modelli.svg")
 
 
@@ -224,10 +230,10 @@ def linea_tempo():
                 markeredgecolor=NAVY, markeredgewidth=1.6, zorder=4)
         ax.plot([x, x], [0, 0.16 * lato], color=SLATE, lw=1, zorder=2)
         ax.text(x, 0.16 * lato + 0.05 * lato, anno, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=12,
+                va="bottom" if lato > 0 else "top", fontsize=15.6,
                 fontweight="bold", color=NAVY)
         ax.text(x, 0.40 * lato, testo, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=10.5, color=SLATE)
+                va="bottom" if lato > 0 else "top", fontsize=13.7, color=SLATE)
     ax.set_xlim(-0.06, 1.08); ax.set_ylim(-0.75, 0.75); ax.axis("off")
     save(fig, "linea-tempo.svg")
 

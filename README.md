@@ -1,7 +1,6 @@
 # Apprendimento statistico · CONAD Nord Ovest
 
-Sito del corso (8 ore: 4 frontali + 4 hands-on) tenuto da Orso Peruzzi (Data Scientist, IFAB).
-Spina dorsale narrativa in **Quarto / RevealJS**, superficie eseguibile nei **notebook Colab** collegati.
+Sito del corso (8 ore: 4 frontali + 4 hands-on), spina dorsale narrativa in **Quarto / RevealJS**, superficie eseguibile nei **notebook Colab** collegati.
 
 Tesi del corso: l'apprendimento statistico è machine learning a tutti gli effetti, ed è la base
 concettuale da cui discendono anche i modelli più avanzati (CNN, RNN, LSTM, GAN, transformer, LLM).
