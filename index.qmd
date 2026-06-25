@@ -12,13 +12,13 @@ title-slide-attributes:
   data-background-color: "#002060"
 ---
 
-## Benvenuti {.benvenuti .divider background-color="#002060" footer=" "}
+## Benvenuti {.benvenuti .divider background-color="#002060"}
 
 [Benvenuti al corso di]{.hero-small}
 
 [AI TRADIZIONALE]{.hero-big}
 
-## Benvenuti {.benvenuti .benvenuti-no .divider background-color="#002060" footer=" "}
+## Benvenuti {.benvenuti .benvenuti-no .divider background-color="#002060"}
 
 [Benvenuti al corso di]{.hero-small}
 

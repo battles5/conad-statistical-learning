@@ -4,6 +4,9 @@
 
 # discorso personale del docente: solo locale, non pubblicare
 discorso_per_slide.md
+
+# export PDF locali: non pubblicare nella repo
+*.pdf
 __pycache__/
 .ipynb_checkpoints/
 .Rproj.user/
