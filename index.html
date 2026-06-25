@@ -356,6 +356,25 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <p><img data-src="assets/y-fx-illustrazione.svg" style="width:100.0%" alt="Nuvola di punti attorno a una curva: la relazione vera f e l'errore epsilon"></p>
 </div></div>
 </section>
+<section id="un-esempio-concreto-di-y-fx-varepsilon" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
+<h2>Un esempio concreto di <span class="math inline">\(Y = f(X) + \varepsilon\)</span></h2>
+<p>mettiamoci dei numeri, in stile Conad:</p>
+<div class="columns">
+<div class="column" style="width:56%;">
+<ul>
+<li><span class="math inline">\(Y\)</span> è la <strong>spesa mensile</strong> del cliente, <span class="math inline">\(X\)</span> il <strong>numero di visite</strong>;</li>
+<li>la parte sistematica potrebbe essere <span class="math inline">\(f(X) \approx 25 \cdot X\)</span> euro, in media 25 euro a visita;</li>
+<li>ma due clienti con le stesse 4 visite spendono 92 e 108 euro: la differenza è <span class="math inline">\(\varepsilon\)</span>;</li>
+<li><span class="math inline">\(\varepsilon\)</span> racchiude tutto ciò che non misuriamo: gusti, promozioni colte, giornata storta.</li>
+</ul>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>stimare <span class="math inline">\(f\)</span> vuol dire trovare la regola media, qui i 25 euro a visita;</li>
+<li>non potremo mai prevedere <span class="math inline">\(\varepsilon\)</span> esattamente: è l’errore irriducibile;</li>
+<li>un buon modello cattura <span class="math inline">\(f\)</span>, non insegue <span class="math inline">\(\varepsilon\)</span>.</li>
+</ul>
+</div></div>
+</section>
 <section id="stimare-f-per-due-scopi" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>Stimare <span class="math inline">\(f\)</span> per due scopi</h2>
 <p>stimiamo <span class="math inline">\(f\)</span> con <span class="math inline">\(\hat f\)</span>, e prevediamo con <span class="math inline">\(\hat Y = \hat f(X)\)</span>. l’errore di previsione si scompone:</p>
@@ -563,6 +582,24 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <p><img data-src="assets/errore-train-test.svg" style="width:100.0%" alt="Errore di training decrescente, errore di test a U, linea dell'errore irriducibile, punto di equilibrio evidenziato"></p>
 </div></div>
 </section>
+<section id="overfitting-imparare-a-memoria" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
+<h2>Overfitting: imparare a memoria</h2>
+<p>un’immagine per ricordarlo: lo studente che <strong>impara a memoria</strong> i compiti già svolti.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>va benissimo sui compiti che ha già visto (il training): li ripete a memoria;</li>
+<li>ma all’esame, con esercizi nuovi (il test), va in difficoltà: non ha capito il metodo;</li>
+<li>chi invece <strong>capisce il metodo</strong> è meno perfetto sui vecchi compiti ma se la cava sui nuovi;</li>
+<li>un modello che overfitta è il primo studente: bravissimo sul training, fragile sul test.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>training error bassissimo e test error alto vuol dire ho memorizzato, non ho imparato;</li>
+<li>la difesa è la stessa dello studente: esercitarsi su problemi nuovi, cioè validare su dati mai visti.</li>
+</ul>
+</div></div>
+</section>
 <section id="quiz-lampo-il-modello-che-non-sbaglia" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Quiz lampo: il modello che non sbaglia</h2>
 <p>un modello azzecca quasi perfettamente tutti i dati di addestramento.</p>
@@ -662,6 +699,26 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li>k-fold: si divide in <span class="math inline">\(k\)</span> parti, si addestra su <span class="math inline">\(k-1\)</span> e si valuta sulla restante, a rotazione;</li>
 <li>LOOCV: il caso estremo con <span class="math inline">\(k = n\)</span>, si lascia fuori un dato alla volta.</li>
 </ul>
+</section>
+<section id="la-cross-validation-passo-passo" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
+<h2>La cross-validation, passo passo</h2>
+<p>un esempio concreto di 5-fold su 1.000 clienti:</p>
+<div class="columns">
+<div class="column" style="width:56%;">
+<ul>
+<li>dividiamo i clienti in <strong>5 gruppi</strong> da 200;</li>
+<li>giro 1: alleniamo sui gruppi 2-3-4-5, valutiamo sul gruppo 1;</li>
+<li>giro 2: alleniamo su 1-3-4-5, valutiamo sul gruppo 2;</li>
+<li>e così via, finché ogni gruppo ha fatto da test una volta;</li>
+<li>l’errore finale è la <strong>media</strong> dei 5 errori.</li>
+</ul>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>ogni cliente finisce nel test esattamente una volta;</li>
+<li>usiamo tutti i dati per allenare e per validare, senza toccare il test set finale;</li>
+<li>è più stabile di un solo split e ci dice quale flessibilità scegliere.</li>
+</ul>
+</div></div>
 </section>
 <section id="quiz-lampo-la-cross-validation" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Quiz lampo: la cross-validation</h2>
@@ -778,6 +835,25 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li>esempio ISL: vendite in funzione dei budget TV, radio, volantino;</li>
 <li>semplice, veloce, interpretabile: il punto di partenza, non il nemico.</li>
 </ul>
+</section>
+<section id="leggere-i-coefficienti-dal-numero-al-significato" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
+<h2>Leggere i coefficienti: dal numero al significato</h2>
+<p>il bello del lineare e del logistico: i coefficienti <strong>si leggono</strong>.</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><strong>regressione</strong> (vendite, Advertising):</p>
+<ul>
+<li>se <span class="math inline">\(\hat\beta_{\text{TV}} = 0{,}047\)</span>, ogni 1.000 in più di budget sulla TV valgono circa <strong>47 unità</strong> vendute in più, a parità del resto;</li>
+<li>il segno dà la direzione, la grandezza dà l’intensità.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><strong>classificazione</strong> (insolvenza, Default):</p>
+<ul>
+<li>la logistica ragiona in <strong>odds</strong>: un coefficiente positivo sul saldo significa che, salendo il saldo, l’insolvenza diventa più probabile;</li>
+<li>dal logit si torna alla probabilità con la curva a S.</li>
+</ul>
+</div></div>
+<p>è il livello di lettura che un modello scatola nera non offre: lo rivedremo con la tabella <code>statsmodels</code> in NB1.</p>
 </section>
 <section id="classificazione-interpretabile-regressione-logistica" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>Classificazione interpretabile: regressione logistica</h2>
@@ -921,6 +997,24 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <p><img data-src="assets/albero-decisione.svg" style="width:100.0%" alt="Albero di decisione per il churn: domande su recency, visite e reclami, con foglie di rischio churn"></p>
 </div></div>
 </section>
+<section id="lensemble-la-saggezza-della-folla" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
+<h2>L’ensemble: la saggezza della folla</h2>
+<p>perché tanti alberi mediocri battono un solo albero bravo?</p>
+<div class="columns">
+<div class="column" style="width:56%;">
+<ul>
+<li>è il principio della <strong>saggezza della folla</strong>: tante opinioni imperfette e indipendenti, messe insieme, sbagliano meno del singolo esperto;</li>
+<li>ogni albero vede una parte diversa dei dati e fa errori diversi;</li>
+<li>mediando le loro previsioni, gli errori casuali si compensano e resta il segnale;</li>
+<li>è esattamente quello che fanno <strong>bagging</strong> e <strong>random forest</strong>.</li>
+</ul>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>conta che gli alberi siano <strong>diversi</strong> tra loro: se sbagliano tutti allo stesso modo, la media non aiuta;</li>
+<li>la random forest li rende diversi sia sui dati sia sulle variabili.</li>
+</ul>
+</div></div>
+</section>
 <section id="dagli-alberi-agli-ensemble" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
 <h2>Dagli alberi agli ensemble</h2>
 <ul>
@@ -928,6 +1022,16 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li class="fragment">random forest: bagging più decorrelazione degli alberi, di solito molto efficace;</li>
 <li class="fragment">boosting: alberi piccoli aggiunti in sequenza, ognuno corregge gli errori del precedente;</li>
 <li class="fragment">nel pomeriggio vedremo dal vivo l’albero che overfitta e la foresta che lo stabilizza.</li>
+</ul>
+</section>
+<section id="boosting-imparare-dagli-errori" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
+<h2>Boosting: imparare dagli errori</h2>
+<p>il boosting ha un’altra strategia, sequenziale invece che parallela.</p>
+<ul>
+<li>immagina uno studente che, dopo ogni simulazione d’esame, si concentra <strong>solo sulle domande sbagliate</strong>;</li>
+<li>il boosting fa così: ogni alberello piccolo corregge gli errori lasciati dai precedenti;</li>
+<li>alla fine si sommano tanti piccoli aggiustamenti mirati;</li>
+<li>spesso è il modello più accurato, ma va dosato: troppi passi e ricomincia a overfittare.</li>
 </ul>
 </section>
 <section id="svm-margine-massimo-e-kernel" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli">
@@ -1052,6 +1156,25 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li>più capacità porta più potenza e più rischio di overfitting: servono molti più dati.</li>
 </ul>
 </section>
+<section id="feature-learning-in-concreto" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
+<h2>Feature learning, in concreto</h2>
+<p>cosa vuol dire che la rete impara le feature da sola?</p>
+<div class="columns">
+<div class="column" style="width:56%;">
+<ul>
+<li>per riconoscere una cifra scritta a mano nessuno le dice cerca i bordi;</li>
+<li>i primi strati imparano da soli pattern semplici: <strong>bordi</strong> e angoli;</li>
+<li>gli strati intermedi li combinano in <strong>forme</strong>, curve e incroci;</li>
+<li>gli ultimi strati riconoscono l’oggetto intero, la cifra;</li>
+<li>noi non scegliamo le feature: emergono dai dati, livello dopo livello.</li>
+</ul>
+</div><div class="column" style="width:44%;">
+<ul>
+<li>nei modelli del mattino le feature le scegliamo noi: recency, visite, scontrino;</li>
+<li>nelle reti profonde questo lavoro lo fa la rete: è il loro superpotere sui dati grezzi come immagini e testo.</li>
+</ul>
+</div></div>
+</section>
 <section id="è-ancora-apprendimento-statistico" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>È ancora apprendimento statistico</h2>
 <ul>
@@ -1059,6 +1182,17 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li>una rete senza regolarizzazione overfitta come un polinomio di grado troppo alto;</li>
 <li>più dati e più capacità spostano il trade-off bias-varianza, non lo eliminano;</li>
 <li>niente magia: gli stessi principi, su scala molto più grande.</li>
+</ul>
+</section>
+<section id="perché-le-reti-vogliono-tanti-dati" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
+<h2>Perché le reti vogliono tanti dati</h2>
+<p>flessibilità altissima e pochi dati non vanno d’accordo.</p>
+<ul>
+<li>una rete profonda ha milioni di parametri: è una <span class="math inline">\(f\)</span> liberissima di piegarsi;</li>
+<li>con pochi dati questa libertà diventa un problema: la rete impara il rumore, overfitta;</li>
+<li>servono molti esempi per riempire tutta quella flessibilità e farla generalizzare;</li>
+<li>è il trade-off bias-varianza di stamattina: più capacità chiede più dati per non sbilanciarsi sulla varianza;</li>
+<li>per questo su tabelle piccole un modello semplice spesso batte la rete, mentre su milioni di immagini la rete domina.</li>
 </ul>
 </section>
 <section id="quiz-lampo-la-rete-profonda" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
