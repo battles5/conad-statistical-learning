@@ -89,7 +89,7 @@ def y_fx():
 
     ax.set_xlabel("X  (predittore)", fontsize=15.6)
     ax.set_ylabel("Y  (risposta)", fontsize=15.6)
-    ax.legend(frameon=False, fontsize=14.3, loc="upper left")
+    ax.legend(loc="upper left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=14.3)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_xticks([]); ax.set_yticks([])
     save(fig, "y-fx-illustrazione.svg")
@@ -222,19 +222,19 @@ def linea_tempo():
         ("anni '90", "support vector\nmachines", 0.81, 1),
         ("oggi", "deep learning,\nLLM", 0.96, -1),
     ]
-    fig, ax = plt.subplots(figsize=(10.2, 4.2))
-    ax.annotate("", xy=(1.02, 0), xytext=(-0.02, 0),
-                arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=2.4))
+    fig, ax = plt.subplots(figsize=(11.0, 5.0))
+    ax.annotate("", xy=(1.03, 0), xytext=(-0.03, 0),
+                arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=3.4, mutation_scale=24))
     for anno, testo, x, lato in tappe:
-        ax.plot([x], [0], "o", color=CYAN, markersize=13,
-                markeredgecolor=NAVY, markeredgewidth=1.6, zorder=4)
-        ax.plot([x, x], [0, 0.16 * lato], color=SLATE, lw=1, zorder=2)
-        ax.text(x, 0.16 * lato + 0.05 * lato, anno, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=15.6,
+        ax.plot([x], [0], "o", color=CYAN, markersize=20,
+                markeredgecolor=NAVY, markeredgewidth=2.2, zorder=4)
+        ax.plot([x, x], [0, 0.20 * lato], color=SLATE, lw=1.6, zorder=2)
+        ax.text(x, 0.26 * lato, anno, ha="center",
+                va="bottom" if lato > 0 else "top", fontsize=19,
                 fontweight="bold", color=NAVY)
-        ax.text(x, 0.40 * lato, testo, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=13.7, color=SLATE)
-    ax.set_xlim(-0.06, 1.08); ax.set_ylim(-0.75, 0.75); ax.axis("off")
+        ax.text(x, 0.60 * lato, testo, ha="center",
+                va="bottom" if lato > 0 else "top", fontsize=16, color=SLATE)
+    ax.set_xlim(-0.07, 1.10); ax.set_ylim(-1.02, 1.02); ax.axis("off")
     save(fig, "linea-tempo.svg")
 
 

@@ -53,24 +53,26 @@ def poly_fit_pred(xtr, ytr, xte, grado):
 # 1) Scatola nera di Breiman: natura che lega X a Y
 # ---------------------------------------------------------------------------
 def nature_blackbox():
-    # layout verticale: X (input) in alto -> natura -> Y (output) in basso
-    fig, ax = plt.subplots(figsize=(5.2, 6.0))
-    ax.text(0.5, 0.92, "$X$  (predittori)", ha="center", va="center",
-            fontsize=19, color=NAVY, fontweight="bold")
-    ax.annotate("", xy=(0.5, 0.66), xytext=(0.5, 0.86),
-                arrowprops=dict(arrowstyle="-|>", color=SLATE, lw=2.6))
-    ax.add_patch(FancyBboxPatch((0.24, 0.40), 0.52, 0.24,
+    # layout verticale, tutto centrato sull'asse x=0.5; etichette su due righe
+    # centrate (simbolo sopra, descrizione sotto) per stare sull'asse di frecce e box
+    fig, ax = plt.subplots(figsize=(5.4, 6.3))
+    cx = 0.5
+    ax.text(cx, 0.91, "$X$\n(predittori)", ha="center", va="center",
+            fontsize=18, color=NAVY, fontweight="bold", linespacing=1.35)
+    ax.annotate("", xy=(cx, 0.64), xytext=(cx, 0.82),
+                arrowprops=dict(arrowstyle="-|>", color=SLATE, lw=2.8))
+    ax.add_patch(FancyBboxPatch((cx - 0.27, 0.42), 0.54, 0.20,
                                 boxstyle="round,pad=0.02,rounding_size=0.04",
                                 facecolor=NAVY, edgecolor=NAVY))
-    ax.text(0.5, 0.52, "natura\n$f$ sconosciuta", ha="center", va="center",
-            color="white", fontsize=20, fontweight="bold")
-    ax.annotate("", xy=(0.5, 0.18), xytext=(0.5, 0.38),
-                arrowprops=dict(arrowstyle="-|>", color=SLATE, lw=2.6))
-    ax.text(0.5, 0.12, "$Y$  (risposta)", ha="center", va="center",
-            fontsize=19, color=NAVY, fontweight="bold")
-    ax.text(0.5, 0.015, "osserviamo solo gli ingressi e le uscite,\nnon il meccanismo",
-            ha="center", va="center", fontsize=14, color=GREY, style="italic")
-    ax.set_xlim(0, 1); ax.set_ylim(-0.04, 1.0); ax.axis("off")
+    ax.text(cx, 0.52, "natura\n$f$ sconosciuta", ha="center", va="center",
+            color="white", fontsize=19, fontweight="bold", linespacing=1.35)
+    ax.annotate("", xy=(cx, 0.22), xytext=(cx, 0.40),
+                arrowprops=dict(arrowstyle="-|>", color=SLATE, lw=2.8))
+    ax.text(cx, 0.13, "$Y$\n(risposta)", ha="center", va="center",
+            fontsize=18, color=NAVY, fontweight="bold", linespacing=1.35)
+    ax.text(cx, 0.0, "osserviamo solo gli ingressi e le uscite,\nnon il meccanismo",
+            ha="center", va="center", fontsize=13.5, color=GREY, style="italic", linespacing=1.3)
+    ax.set_xlim(0, 1); ax.set_ylim(-0.05, 1.0); ax.axis("off")
     save(fig, "nature-blackbox.svg")
 
 
@@ -92,7 +94,7 @@ def dati_train_test():
     ax.scatter(x[is_test], y[is_test], s=46, color=CYAN, edgecolor=NAVY,
                lw=0.7, zorder=4, label="test set")
     ax.set_xlabel("X"); ax.set_ylabel("Y")
-    ax.legend(frameon=False, fontsize=13.7, loc="upper right")
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.01), ncol=3, frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=12.5)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_xticks([]); ax.set_yticks([])
     save(fig, "dati-train-test.svg")
@@ -118,7 +120,7 @@ def flessibilita_fit():
             label="troppo flessibile", zorder=5)
     ax.set_xlabel("X"); ax.set_ylabel("Y")
     ax.set_ylim(y.min() - 0.12, y.max() + 0.12)
-    ax.legend(frameon=False, fontsize=13.7, loc="upper right")
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.01), ncol=3, frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=12.5)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_xticks([]); ax.set_yticks([])
     save(fig, "flessibilita-fit.svg")
@@ -162,7 +164,7 @@ def errore_train_test():
     ax.set_ylabel("errore quadratico medio", fontsize=14.3)
     ax.set_ylim(0, te_m.max() * 1.12)
     ax.set_xticks([])
-    ax.legend(frameon=False, fontsize=13.7, loc="upper center")
+    ax.legend(loc="upper right", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "errore-train-test.svg")
 
@@ -198,7 +200,7 @@ def scomposizione_bias_var():
     ax.set_xlabel("flessibilità del modello", fontsize=14.3)
     ax.set_ylabel("contributo all'errore", fontsize=14.3)
     ax.set_ylim(0, np.percentile(tot, 92) * 1.15)
-    ax.legend(frameon=False, fontsize=13.7)
+    ax.legend(loc="upper right", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "scomposizione-bias-var.svg")
 
@@ -319,7 +321,7 @@ def knn_errore():
     ax.set_xscale("log")
     ax.set_xlabel("flessibilità  →  $1/K$  (scala logaritmica)", fontsize=14.3)
     ax.set_ylabel("tasso di errore", fontsize=14.3)
-    ax.legend(frameon=False, fontsize=13.7, loc="upper left")
+    ax.legend(loc="lower left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "knn-errore.svg")
 
@@ -380,7 +382,7 @@ def polinomi_spline():
     ax.plot(xs, np.polyval(cl, xs), color=GOLD, lw=2.6, label="lineare", zorder=3)
     ax.plot(xs, np.polyval(cp, xs), color=NAVY, lw=3, label="polinomio (grado 4)", zorder=4)
     ax.set_xlabel("età", fontsize=14.3); ax.set_ylabel("salario (migliaia)", fontsize=14.3)
-    ax.legend(frameon=False, fontsize=13.7, loc="lower center")
+    ax.legend(loc="upper left", frameon=True, framealpha=0.96, edgecolor="#c9d2dd", facecolor="white", fontsize=13.0)
     ax.spines[["top", "right"]].set_visible(False)
     save(fig, "polinomi-spline.svg")
 
