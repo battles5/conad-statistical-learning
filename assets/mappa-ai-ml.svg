@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="358.128pt" height="358.128pt" viewBox="0 0 358.128 358.128" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-06-24T17:46:52.678816</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 358.128 
+L 358.128 358.128 
+L 358.128 0 
+L 0 0 
+L 0 358.128 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 179.064 344.05344 
+C 222.819711 344.05344 264.789192 326.669112 295.729152 295.729152 
+C 326.669112 264.789192 344.05344 222.819711 344.05344 179.064 
+C 344.05344 135.308289 326.669112 93.338808 295.729152 62.398848 
+C 264.789192 31.458888 222.819711 14.07456 179.064 14.07456 
+C 135.308289 14.07456 93.338808 31.458888 62.398848 62.398848 
+C 31.458888 93.338808 14.07456 135.308289 14.07456 179.064 
+C 14.07456 222.819711 31.458888 264.789192 62.398848 295.729152 
+C 93.338808 326.669112 135.308289 344.05344 179.064 344.05344 
+z
+" clip-path="url(#pb933a9f5ca)" style="fill: #8fd2e9; opacity: 0.35; stroke: #414f69; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 179.064 319.99248 
+C 209.146051 319.99248 238.000069 308.040754 259.271292 286.769532 
+C 280.542514 265.498309 292.49424 236.644291 292.49424 206.56224 
+C 292.49424 176.480189 280.542514 147.626171 259.271292 126.354948 
+C 238.000069 105.083726 209.146051 93.132 179.064 93.132 
+C 148.981949 93.132 120.127931 105.083726 98.856708 126.354948 
+C 77.585486 147.626171 65.63376 176.480189 65.63376 206.56224 
+C 65.63376 236.644291 77.585486 265.498309 98.856708 286.769532 
+C 120.127931 308.040754 148.981949 319.99248 179.064 319.99248 
+z
+" clip-path="url(#pb933a9f5ca)" style="fill: #00adcf; opacity: 0.55; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 179.064 292.49424 
+C 194.560814 292.49424 209.425005 286.33729 220.382908 275.379388 
+C 231.34081 264.421485 237.49776 249.557294 237.49776 234.06048 
+C 237.49776 218.563666 231.34081 203.699475 220.382908 192.741572 
+C 209.425005 181.78367 194.560814 175.62672 179.064 175.62672 
+C 163.567186 175.62672 148.702995 181.78367 137.745092 192.741572 
+C 126.78719 203.699475 120.63024 218.563666 120.63024 234.06048 
+C 120.63024 249.557294 126.78719 264.421485 137.745092 275.379388 
+C 148.702995 286.33729 163.567186 292.49424 179.064 292.49424 
+z
+" clip-path="url(#pb933a9f5ca)" style="fill: #002060; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #002060" x="179.064" y="35.341429" transform="rotate(-0 179.064 35.341429)">Intelligenza artificiale</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; fill: #002060" transform="translate(115.837281 110.013508)">Machine learning</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; fill: #002060" transform="translate(78.676578 124.672227)">= apprendimento statistico</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(161.649 230.606168)">Deep</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(151.035562 244.043543)">learning</text>
+   </g>
+   <g id="text_4">
+    <text style="font-style: italic; font-size: 10.5px; font-family: 'DejaVu Sans'; fill: #414f69" transform="translate(35.720415 299.824572)">AI simbolica,</text>
+    <text style="font-style: italic; font-size: 10.5px; font-family: 'DejaVu Sans'; fill: #414f69" transform="translate(27.104673 311.582275)">sistemi a regole</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb933a9f5ca">
+   <rect x="7.2" y="7.2" width="343.728" height="343.728"/>
+  </clipPath>
+ </defs>
+</svg>
