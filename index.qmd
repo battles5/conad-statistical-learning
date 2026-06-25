@@ -12,6 +12,33 @@ title-slide-attributes:
   data-background-color: "#002060"
 ---
 
+## Chi sono {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
+
+:::: {.columns}
+
+::: {.column width="52%"}
+### Orso Peruzzi
+
+data scientist a **IFAB** (Bologna), la fondazione che co-promuove l'AI Factory italiana IT4LIA con il CINECA.
+
+- mi occupo di previsione di serie storiche, proprio "dai modelli statistici ai modelli profondi": il filo di oggi;
+- formazione: astronomia e fisica all'università di Bologna, poi master in data science e apprendimento statistico (IMT Lucca e Firenze, con lode);
+- tutto in parallelo al lavoro.
+:::
+
+::: {.column width="48%"}
+### Cosa faccio
+
+- modelli di rischio e churn su milioni di clienti;
+- previsione della domanda per industria e distribuzione;
+- manutenzione predittiva su sensori e benchmark di foundation model;
+- strumenti di ogni giorno: scikit-learn, statsmodels, gradient boosting, reti neurali.
+
+fuori dal lavoro: apicoltore con sette arnie e batterista jazz.
+:::
+
+::::
+
 ## Benvenuti {.benvenuti .divider background-color="#002060"}
 
 [Benvenuti al corso di]{.hero-small}
@@ -154,7 +181,7 @@ in tutti i casi: dai dati a una risposta quantitativa su qualcosa che non osserv
 ::: {.column width="60%"}
 - C'è una **risposta** $Y$, il fenomeno di interesse, ad esempio le vendite di un prodotto;
 - ci sono dei **predittori** $X_1, X_2, \dots, X_p$, le informazioni note;
-- esempio ISL, dataset Advertising: $Y$ sono le vendite, $X_1, X_2, X_3$ i budget su TV, radio, volantino;
+- esempio ISL, dataset Advertising: $Y$ sono le vendite, $X_1, X_2, X_3$ i budget su TV, radio, volantino (nel libro: newspaper);
 - la risposta ha tanti nomi (output, target, variabile dipendente), i predittori altrettanti (input, feature, covariate).
 :::
 
@@ -163,6 +190,21 @@ in tutti i casi: dai dati a una risposta quantitativa su qualcosa che non osserv
 :::
 
 ::::
+
+## Un dataset: righe e colonne {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
+
+i dati arrivano in una tabella: ogni **riga** è un'osservazione, ogni **colonna** una variabile.
+
+| cliente | recency | visite/mese | scontrino | ... | churn |
+|---|---|---|---|---|---|
+| 1 | 8 | 6 | 32 € | ... | no |
+| 2 | 95 | 1 | 18 € | ... | sì |
+| 3 | 21 | 4 | 47 € | ... | no |
+
+- le righe sono le **osservazioni**, in numero $n$ (qui i clienti);
+- le colonne dei predittori sono $p$ (qui recency, visite, scontrino, ...);
+- una colonna a parte è la **risposta** $Y$ (qui il churn);
+- imparare vuol dire stimare il legame tra le $p$ colonne di input e la risposta, su tutte le $n$ righe.
 
 ## L'equazione di tutto: $Y = f(X) + \varepsilon$ {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
@@ -503,12 +545,57 @@ a cosa serve principalmente la k-fold cross-validation?
 :::
 :::
 
+## Quando $Y$ è una classe: l'errore si misura diverso {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
+
+in classificazione non c'è l'MSE: contiamo gli errori.
+
+:::: {.columns}
+
+::: {.column width="52%"}
+- **tasso d'errore**: quota di previsioni sbagliate; l'**accuratezza** è il suo complemento a uno;
+- la **matrice di confusione** distingue i tipi di errore: falsi positivi e falsi negativi non costano uguale;
+- esiste un errore minimo, il **tasso d'errore di Bayes**: l'analogo dell'errore irriducibile $\sigma^2$ della regressione.
+:::
+
+::: {.column width="48%"}
+| | previsto: no | previsto: sì |
+|---|---|---|
+| **vero: no** | veri negativi | falsi positivi |
+| **vero: sì** | falsi negativi | veri positivi |
+
+nel churn un falso negativo, perdere un cliente senza accorgersene, di solito costa più di un falso allarme.
+:::
+
+::::
+
+## La soglia è una scelta: ROC e AUC {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
+
+un classificatore stima una **probabilità**; per decidere serve una **soglia**, di default 0,5, ma si può spostare.
+
+:::: {.columns}
+
+::: {.column width="54%"}
+- abbassare la soglia trova più positivi (più veri positivi) ma anche più falsi allarmi;
+- la **curva ROC** disegna questo compromesso al variare della soglia;
+- l'**AUC**, l'area sotto la ROC, riassume la bravura del modello in un numero tra 0,5 (a caso) e 1 (perfetto);
+- nel pomeriggio, in NB2, gireremo la soglia e leggeremo la ROC con le nostre mani.
+:::
+
+::: {.column width="46%"}
+- soglia bassa: tante segnalazioni, pochi sfuggono, ma molti falsi allarmi;
+- soglia alta: poche segnalazioni, più sicure, però qualcuno sfugge;
+- la soglia giusta dipende dai costi del caso, non è un dato tecnico.
+:::
+
+::::
+
 ## Take-home del blocco {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
 - L'obiettivo è generalizzare: conta il test error, non il training error;
 - più flessibilità non è sempre meglio, per via dell'overfitting;
 - bias e varianza tirano in direzioni opposte, si cerca l'equilibrio;
-- cross-validation e split train/test sono gli strumenti per trovarlo.
+- cross-validation e split train/test sono gli strumenti per trovarlo;
+- in classificazione l'errore si legge con accuratezza, matrice di confusione e AUC.
 
 ## Blocco 3 · Le famiglie di modelli {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
 
@@ -717,6 +804,26 @@ $$ a = g\!\left(w_0 + \sum_{j=1}^{p} w_j x_j\right) $$
 - di per sé è poco più di una regressione;
 - la potenza nasce quando se ne impilano tanti.
 
+## Come imparano i modelli: costo e discesa del gradiente {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+addestrare vuol dire **minimizzare una funzione di costo** (o perdita), che misura quanto il modello sbaglia.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- in regressione il costo è l'MSE; in classificazione è la log-verosimiglianza (cross-entropy);
+- a volte il minimo si trova con una formula, come i minimi quadrati della retta;
+- ma per le reti e i modelli complessi una formula chiusa non esiste.
+:::
+
+::: {.column width="50%"}
+- allora si procede **a piccoli passi**: si guarda la pendenza (il gradiente) e si scende verso il basso;
+- l'ampiezza del passo è il **learning rate**, il numero di passi sono le iterazioni;
+- è il `max_iter` che vedrete nei notebook: la rete trova i pesi così, scendendo il gradiente.
+:::
+
+::::
+
 ## Dal dettaglio al macroscopico {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
 - Fino agli alberi abbiamo aperto $f$ nel dettaglio, seguendo ISL: pochi parametri, formule, interpretazione;
@@ -820,15 +927,13 @@ a ogni tipo di dato la sua architettura; sotto restano sempre neuroni e $Y = f(X
 
 :::: {.columns}
 
-::: {.column width="52%"}
+::: {.column width="42%"}
 - Due reti in competizione: il **generatore** crea dati finti, il **discriminatore** prova a smascherarli;
 - migliorano a vicenda, finché i dati finti diventano credibili;
 - servono a generare immagini, audio, dati sintetici.
-
-![](img/opera_arte_generata.png){width="56%" fig-alt="Immagine generata da una rete generativa"}
 :::
 
-::: {.column width="48%"}
+::: {.column width="58%"}
 ![](assets/architettura-gan.svg){width="100%" fig-alt="Schema GAN: generatore e discriminatore in competizione"}
 :::
 
@@ -919,7 +1024,7 @@ i dati sono caricati via URL dal repo, quindi i notebook girano anche a casa.
 ## Strumenti e dati {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Riferimenti"}
 
 - Scikit-learn: Pedregosa et al. (2011), *Scikit-learn: Machine Learning in Python*, JMLR;
-- dataset canonici ISL: Auto, Default, Carseats;
+- dataset canonici ISL: Auto, Default, Carseats, Hitters;
 - dataset retail sintetico stile Conad: generato per questo corso, riproducibile con `data/genera_dataset.py`;
 - tutto il materiale vive in un unico repo pubblico, questo sito ne è la spina dorsale.
 

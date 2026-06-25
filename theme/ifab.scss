@@ -151,3 +151,11 @@ body.ifab-on-divider .ifab-topband,
 body.ifab-on-divider .ifab-bottomstrip,
 body.ifab-on-divider .reveal .footer { display: none; }
 body:not(.ifab-on-title) .ifab-title-logo { display: none; }
+
+// esempio + didascalia (slide GAN)
+.reveal .gan-esempio { text-align: center; margin-top: 0.25em; }
+.reveal .gan-esempio img { margin-bottom: 0.1em; }
+.reveal .caption-mini {
+  display: block; text-align: center; font-style: italic;
+  font-size: 0.52em; color: var(--ifab-grey); line-height: 1.2;
+}

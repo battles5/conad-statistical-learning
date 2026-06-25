@@ -127,21 +127,31 @@ def architettura_transformer():
 # 4) Architettura GAN: due reti in competizione
 # ---------------------------------------------------------------------------
 def architettura_gan():
-    fig, ax = plt.subplots(figsize=(10.4, 4.8))
-    box(ax, 1.2, 3.1, 1.8, 0.9, "Rumore $z$", LIGHT, fg=NAVY, fs=14)
-    box(ax, 3.8, 3.1, 2.2, 1.1, "Generatore", CYAN, fg=NAVY, fs=15)
-    box(ax, 6.4, 3.1, 2.0, 0.9, "Dato finto", "#dbe7f0", fg=NAVY, fs=14)
-    box(ax, 6.4, 1.1, 2.0, 0.9, "Dati reali", LIGHT, fg=NAVY, fs=14)
-    box(ax, 9.3, 2.1, 2.7, 1.1, "Discriminatore", NAVY, fs=14)
-    arrow(ax, (2.1, 3.1), (2.7, 3.1))
-    arrow(ax, (4.9, 3.1), (5.4, 3.1))
-    arrow(ax, (7.4, 3.1), (7.95, 2.5))
-    arrow(ax, (7.4, 1.1), (7.95, 1.7))
-    ax.annotate("vero o finto?", xy=(9.3, 1.25), fontsize=13, color=NAVY,
-                ha="center", style="italic")
-    ax.text(5.2, 4.35, "Due reti in competizione: il generatore impara a ingannare il discriminatore",
-            ha="center", fontsize=13.5, color=SLATE)
-    ax.set_xlim(0.2, 10.9); ax.set_ylim(0.4, 4.7); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(10.6, 6.0))
+    # riga di generazione (in alto) e dato reale (in basso)
+    box(ax, 1.25, 4.2, 2.1, 1.05, "Rumore", LIGHT, fg=NAVY, fs=18)
+    box(ax, 4.25, 4.2, 2.5, 1.25, "Generatore", CYAN, fg=NAVY, fs=19)
+    box(ax, 7.35, 4.2, 2.3, 1.05, "Dato finto", "#dbe7f0", fg=NAVY, fs=18)
+    box(ax, 7.35, 1.6, 2.3, 1.05, "Dati reali", LIGHT, fg=NAVY, fs=18)
+    box(ax, 10.4, 2.9, 3.0, 1.3, "Discriminatore", NAVY, fs=19)
+    # flusso principale
+    arrow(ax, (2.3, 4.2), (3.0, 4.2))
+    arrow(ax, (5.5, 4.2), (6.2, 4.2))
+    arrow(ax, (8.5, 4.2), (9.15, 3.45))
+    arrow(ax, (8.5, 1.6), (9.15, 2.35))
+    # verdetto del discriminatore
+    arrow(ax, (10.4, 2.25), (10.4, 1.75))
+    ax.text(10.4, 1.35, "vero o finto?", fontsize=17, color=NAVY,
+            ha="center", va="center", style="italic", fontweight="bold")
+    # arco di retroazione: l'errore aggiorna il generatore
+    ax.add_patch(FancyArrowPatch((10.4, 3.55), (4.25, 4.83),
+                                 connectionstyle="arc3,rad=-0.32",
+                                 arrowstyle="-|>", mutation_scale=22,
+                                 color=RED, lw=2.4, ls=(0, (6, 3)),
+                                 shrinkA=10, shrinkB=10, zorder=2))
+    ax.text(6.9, 5.78, "errore: aggiorna il generatore", fontsize=16,
+            color=RED, ha="center", va="center", style="italic", fontweight="bold")
+    ax.set_xlim(0.0, 12.1); ax.set_ylim(0.7, 6.2); ax.axis("off")
     save(fig, "architettura-gan.svg")
 
 

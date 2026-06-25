@@ -13,3 +13,6 @@ __pycache__/
 /.venv/
 
 **/*.quarto_ipynb
+
+# contesto per Claude Code: solo locale, non pubblicare
+CLAUDE.md
