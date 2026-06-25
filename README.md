@@ -46,7 +46,7 @@ conad-statistical-learning/
 ├── data/
 │   ├── genera_dataset.py       genera il dataset retail sintetico (seed fisso)
 │   ├── conad_retail.csv        dataset retail sintetico (10.000 clienti)
-│   ├── Auto.csv, Default.csv, Carseats.csv, Advertising.csv, Boston.csv, Hitters.csv   dataset canonici ISL
+│   ├── Auto.csv, Default.csv, Carseats.csv, Hitters.csv   dataset canonici ISL
 │   └── README.md               dizionario dei dati
 ├── notebooks/
 │   └── NB0..NB4 .ipynb         notebook Colab del pomeriggio (editati direttamente)

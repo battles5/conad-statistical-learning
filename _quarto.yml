@@ -8,8 +8,6 @@ project:
     - data/Auto.csv
     - data/Default.csv
     - data/Carseats.csv
-    - data/Advertising.csv
-    - data/Boston.csv
     - data/Hitters.csv
 
 lang: it

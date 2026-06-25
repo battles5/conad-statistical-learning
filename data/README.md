@@ -96,8 +96,6 @@ nel sistema internazionale dove serve (vedi nota sotto).
 | `Default.csv` | NB2, NB4 | insolvenza su carta di credito (10.000 clienti) |
 | `Carseats.csv` | NB3 | vendite di seggiolini auto in 400 negozi |
 | `Hitters.csv` | NB2 | stipendi di giocatori di baseball (ridge e lasso) |
-| `Advertising.csv` | disponibile | spesa pubblicitaria e vendite |
-| `Boston.csv` | disponibile | valori immobiliari a Boston |
 
 ### conversione delle unita' (sistema internazionale)
 
