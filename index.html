@@ -32,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-edf1282ffc10b90d4275246bf598bdfb.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-c00030dad36f4fe27bf643130d7c46cb.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -142,6 +142,28 @@ Orso Peruzzi · Data Scientist, IFAB
 </div>
 
   <p class="date">26 giugno 2026</p>
+</section>
+<section id="chi-sono" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura">
+<h2>Chi sono</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<h3 id="orso-peruzzi">Orso Peruzzi</h3>
+<p>data scientist a <strong>IFAB</strong> (Bologna), la fondazione che co-promuove l’AI Factory italiana IT4LIA con il CINECA.</p>
+<ul>
+<li>mi occupo di previsione di serie storiche, proprio “dai modelli statistici ai modelli profondi”: il filo di oggi;</li>
+<li>formazione: astronomia e fisica all’università di Bologna, poi master in data science e apprendimento statistico (IMT Lucca e Firenze, con lode);</li>
+<li>tutto in parallelo al lavoro.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<h3 id="cosa-faccio">Cosa faccio</h3>
+<ul>
+<li>modelli di rischio e churn su milioni di clienti;</li>
+<li>previsione della domanda per industria e distribuzione;</li>
+<li>manutenzione predittiva su sensori e benchmark di foundation model;</li>
+<li>strumenti di ogni giorno: scikit-learn, statsmodels, gradient boosting, reti neurali.</li>
+</ul>
+<p>fuori dal lavoro: apicoltore con sette arnie e batterista jazz.</p>
+</div></div>
 </section>
 <section id="benvenuti" class="slide level2 benvenuti divider" data-background-color="#002060">
 <h2>Benvenuti</h2>
@@ -262,12 +284,60 @@ Orso Peruzzi · Data Scientist, IFAB
 <ul>
 <li>C’è una <strong>risposta</strong> <span class="math inline">\(Y\)</span>, il fenomeno di interesse, ad esempio le vendite di un prodotto;</li>
 <li>ci sono dei <strong>predittori</strong> <span class="math inline">\(X_1, X_2, \dots, X_p\)</span>, le informazioni note;</li>
-<li>esempio ISL, dataset Advertising: <span class="math inline">\(Y\)</span> sono le vendite, <span class="math inline">\(X_1, X_2, X_3\)</span> i budget su TV, radio, volantino;</li>
+<li>esempio ISL, dataset Advertising: <span class="math inline">\(Y\)</span> sono le vendite, <span class="math inline">\(X_1, X_2, X_3\)</span> i budget su TV, radio, volantino (nel libro: newspaper);</li>
 <li>la risposta ha tanti nomi (output, target, variabile dipendente), i predittori altrettanti (input, feature, covariate).</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="img/scontrino.jpeg" style="width:90.0%" alt="Uno scontrino: voci e importi sono dati da cui imparare"></p>
 </div></div>
+</section>
+<section id="un-dataset-righe-e-colonne" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
+<h2>Un dataset: righe e colonne</h2>
+<p>i dati arrivano in una tabella: ogni <strong>riga</strong> è un’osservazione, ogni <strong>colonna</strong> una variabile.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>cliente</th>
+<th>recency</th>
+<th>visite/mese</th>
+<th>scontrino</th>
+<th>…</th>
+<th>churn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>8</td>
+<td>6</td>
+<td>32 €</td>
+<td>…</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>95</td>
+<td>1</td>
+<td>18 €</td>
+<td>…</td>
+<td>sì</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>21</td>
+<td>4</td>
+<td>47 €</td>
+<td>…</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>le righe sono le <strong>osservazioni</strong>, in numero <span class="math inline">\(n\)</span> (qui i clienti);</li>
+<li>le colonne dei predittori sono <span class="math inline">\(p\)</span> (qui recency, visite, scontrino, …);</li>
+<li>una colonna a parte è la <strong>risposta</strong> <span class="math inline">\(Y\)</span> (qui il churn);</li>
+<li>imparare vuol dire stimare il legame tra le <span class="math inline">\(p\)</span> colonne di input e la risposta, su tutte le <span class="math inline">\(n\)</span> righe.</li>
+</ul>
 </section>
 <section id="lequazione-di-tutto-y-fx-varepsilon" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning">
 <h2>L’equazione di tutto: <span class="math inline">\(Y = f(X) + \varepsilon\)</span></h2>
@@ -622,13 +692,68 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 </div>
 </div>
 </section>
+<section id="quando-y-è-una-classe-lerrore-si-misura-diverso" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
+<h2>Quando <span class="math inline">\(Y\)</span> è una classe: l’errore si misura diverso</h2>
+<p>in classificazione non c’è l’MSE: contiamo gli errori.</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<ul>
+<li><strong>tasso d’errore</strong>: quota di previsioni sbagliate; l’<strong>accuratezza</strong> è il suo complemento a uno;</li>
+<li>la <strong>matrice di confusione</strong> distingue i tipi di errore: falsi positivi e falsi negativi non costano uguale;</li>
+<li>esiste un errore minimo, il <strong>tasso d’errore di Bayes</strong>: l’analogo dell’errore irriducibile <span class="math inline">\(\sigma^2\)</span> della regressione.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>previsto: no</th>
+<th>previsto: sì</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>vero: no</strong></td>
+<td>veri negativi</td>
+<td>falsi positivi</td>
+</tr>
+<tr class="even">
+<td><strong>vero: sì</strong></td>
+<td>falsi negativi</td>
+<td>veri positivi</td>
+</tr>
+</tbody>
+</table>
+<p>nel churn un falso negativo, perdere un cliente senza accorgersene, di solito costa più di un falso allarme.</p>
+</div></div>
+</section>
+<section id="la-soglia-è-una-scelta-roc-e-auc" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
+<h2>La soglia è una scelta: ROC e AUC</h2>
+<p>un classificatore stima una <strong>probabilità</strong>; per decidere serve una <strong>soglia</strong>, di default 0,5, ma si può spostare.</p>
+<div class="columns">
+<div class="column" style="width:54%;">
+<ul>
+<li>abbassare la soglia trova più positivi (più veri positivi) ma anche più falsi allarmi;</li>
+<li>la <strong>curva ROC</strong> disegna questo compromesso al variare della soglia;</li>
+<li>l’<strong>AUC</strong>, l’area sotto la ROC, riassume la bravura del modello in un numero tra 0,5 (a caso) e 1 (perfetto);</li>
+<li>nel pomeriggio, in NB2, gireremo la soglia e leggeremo la ROC con le nostre mani.</li>
+</ul>
+</div><div class="column" style="width:46%;">
+<ul>
+<li>soglia bassa: tante segnalazioni, pochi sfuggono, ma molti falsi allarmi;</li>
+<li>soglia alta: poche segnalazioni, più sicure, però qualcuno sfugge;</li>
+<li>la soglia giusta dipende dai costi del caso, non è un dato tecnico.</li>
+</ul>
+</div></div>
+</section>
 <section id="take-home-del-blocco" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza">
 <h2>Take-home del blocco</h2>
 <ul>
 <li>L’obiettivo è generalizzare: conta il test error, non il training error;</li>
 <li>più flessibilità non è sempre meglio, per via dell’overfitting;</li>
 <li>bias e varianza tirano in direzioni opposte, si cerca l’equilibrio;</li>
-<li>cross-validation e split train/test sono gli strumenti per trovarlo.</li>
+<li>cross-validation e split train/test sono gli strumenti per trovarlo;</li>
+<li>in classificazione l’errore si legge con accuratezza, matrice di confusione e AUC.</li>
 </ul>
 </section>
 <section id="blocco-3-le-famiglie-di-modelli" class="slide level2 divider" data-background-image="assets/title-bg-bokeh.jpeg" data-background-size="cover" data-background-position="center" data-background-color="#002060">
@@ -891,6 +1016,24 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <li>la potenza nasce quando se ne impilano tanti.</li>
 </ul>
 </section>
+<section id="come-imparano-i-modelli-costo-e-discesa-del-gradiente" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
+<h2>Come imparano i modelli: costo e discesa del gradiente</h2>
+<p>addestrare vuol dire <strong>minimizzare una funzione di costo</strong> (o perdita), che misura quanto il modello sbaglia.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>in regressione il costo è l’MSE; in classificazione è la log-verosimiglianza (cross-entropy);</li>
+<li>a volte il minimo si trova con una formula, come i minimi quadrati della retta;</li>
+<li>ma per le reti e i modelli complessi una formula chiusa non esiste.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>allora si procede <strong>a piccoli passi</strong>: si guarda la pendenza (il gradiente) e si scende verso il basso;</li>
+<li>l’ampiezza del passo è il <strong>learning rate</strong>, il numero di passi sono le iterazioni;</li>
+<li>è il <code>max_iter</code> che vedrete nei notebook: la rete trova i pesi così, scendendo il gradiente.</li>
+</ul>
+</div></div>
+</section>
 <section id="dal-dettaglio-al-macroscopico" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>Dal dettaglio al macroscopico</h2>
 <ul>
@@ -1032,14 +1175,13 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <section id="gan-generare-dati-nuovi" class="slide level2" data-footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture">
 <h2>GAN: generare dati nuovi</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
+<div class="column" style="width:42%;">
 <ul>
 <li>Due reti in competizione: il <strong>generatore</strong> crea dati finti, il <strong>discriminatore</strong> prova a smascherarli;</li>
 <li>migliorano a vicenda, finché i dati finti diventano credibili;</li>
 <li>servono a generare immagini, audio, dati sintetici.</li>
 </ul>
-<p><img data-src="img/opera_arte_generata.png" style="width:56.0%" alt="Immagine generata da una rete generativa"></p>
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:58%;">
 <p><img data-src="assets/architettura-gan.svg" style="width:100.0%" alt="Schema GAN: generatore e discriminatore in competizione"></p>
 </div></div>
 </section>
@@ -1170,7 +1312,7 @@ Y = \underbrace{f(X)}_{\text{sistematica}} + \underbrace{\varepsilon}_{\text{sto
 <h2>Strumenti e dati</h2>
 <ul>
 <li>Scikit-learn: Pedregosa et al.&nbsp;(2011), <em>Scikit-learn: Machine Learning in Python</em>, JMLR;</li>
-<li>dataset canonici ISL: Auto, Default, Carseats;</li>
+<li>dataset canonici ISL: Auto, Default, Carseats, Hitters;</li>
 <li>dataset retail sintetico stile Conad: generato per questo corso, riproducibile con <code>data/genera_dataset.py</code>;</li>
 <li>tutto il materiale vive in un unico repo pubblico, questo sito ne è la spina dorsale.</li>
 </ul>
