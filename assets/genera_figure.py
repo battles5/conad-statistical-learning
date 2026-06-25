@@ -222,19 +222,19 @@ def linea_tempo():
         ("Anni '90", "Support vector\nmachines", 0.81, 1),
         ("Oggi", "Deep learning,\nLLM", 0.96, -1),
     ]
-    fig, ax = plt.subplots(figsize=(11.0, 5.0))
+    fig, ax = plt.subplots(figsize=(11.6, 4.8))
     ax.annotate("", xy=(1.03, 0), xytext=(-0.03, 0),
-                arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=3.4, mutation_scale=24))
+                arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=3.8, mutation_scale=26))
     for anno, testo, x, lato in tappe:
-        ax.plot([x], [0], "o", color=CYAN, markersize=20,
-                markeredgecolor=NAVY, markeredgewidth=2.2, zorder=4)
-        ax.plot([x, x], [0, 0.20 * lato], color=SLATE, lw=1.6, zorder=2)
-        ax.text(x, 0.26 * lato, anno, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=19,
+        ax.plot([x], [0], "o", color=CYAN, markersize=23,
+                markeredgecolor=NAVY, markeredgewidth=2.4, zorder=4)
+        ax.plot([x, x], [0, 0.19 * lato], color=SLATE, lw=1.8, zorder=2)
+        ax.text(x, 0.25 * lato, anno, ha="center",
+                va="bottom" if lato > 0 else "top", fontsize=22,
                 fontweight="bold", color=NAVY)
-        ax.text(x, 0.60 * lato, testo, ha="center",
-                va="bottom" if lato > 0 else "top", fontsize=16, color=SLATE)
-    ax.set_xlim(-0.07, 1.10); ax.set_ylim(-1.02, 1.02); ax.axis("off")
+        ax.text(x, 0.58 * lato, testo, ha="center",
+                va="bottom" if lato > 0 else "top", fontsize=18, color=SLATE)
+    ax.set_xlim(-0.07, 1.10); ax.set_ylim(-0.96, 0.96); ax.axis("off")
     save(fig, "linea-tempo.svg")
 
 

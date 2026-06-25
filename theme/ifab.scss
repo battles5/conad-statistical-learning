@@ -124,6 +124,25 @@ $code-color:    $ifab-navy;
   color: var(--ifab-lightblue); font-weight: 600; font-size: 1.05em; margin-top: .4rem;
 }
 
+// ============ slide d'apertura "BENVENUTI ... / NO" ============
+.reveal section.benvenuti { text-align: center; }
+.reveal section.benvenuti h2 { display: none; }
+.reveal section.benvenuti .hero-small {
+  display: block; color: #ffffff; font-weight: 600; font-size: 1.7em;
+  margin-top: 2.6em; letter-spacing: .02em;
+}
+.reveal section.benvenuti .hero-big {
+  display: block; color: #ffffff; font-weight: 800; font-size: 3.4em;
+  margin-top: .25em; letter-spacing: .03em;
+}
+.reveal section.benvenuti .hero-no {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: var(--ifab-red); font-size: 22em; font-weight: 900; line-height: 1;
+  transform: rotate(-10deg); text-shadow: 0 8px 36px rgba(0, 0, 0, .5); z-index: 60;
+}
+.reveal section.benvenuti-no .hero-small,
+.reveal section.benvenuti-no .hero-big { opacity: .22; }
+
 // mostra/nascondi le decorazioni a seconda della slide attiva
 body.ifab-on-title .ifab-topband,
 body.ifab-on-title .ifab-bottomstrip,

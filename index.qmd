@@ -12,25 +12,49 @@ title-slide-attributes:
   data-background-color: "#002060"
 ---
 
-## Blocco 0 · Apertura: la provocazione {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
+## Benvenuti {.benvenuti .divider background-color="#002060" footer=" "}
+
+[Benvenuti al corso di]{.hero-small}
+
+[AI TRADIZIONALE]{.hero-big}
+
+## Benvenuti {.benvenuti .benvenuti-no .divider background-color="#002060" footer=" "}
+
+[Benvenuti al corso di]{.hero-small}
+
+[AI TRADIZIONALE]{.hero-big}
+
+[NO]{.hero-no}
+
+## Blocco 0 · Apertura {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
 
 ::: {.divider-sub}
 da dove nasce l'idea di "AI tradizionale" e perché è fuorviante
 :::
 
-## Una provocazione per cominciare {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
+## L'etichetta «AI tradizionale» {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
-si sente spesso parlare di **"AI tradizionale"** per indicare tutto ciò che non è deep learning.
+:::: {.columns}
 
-l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
+::: {.column width="56%"}
+si sente parlare di **«AI tradizionale»** per tutto ciò che non è deep learning: un'etichetta che sa di vecchio, di serie B.
+
+dall'altra parte, attorno al deep learning c'è un hype enorme, come fu per la bolla delle dot-com.
 
 ::: {.fragment}
-**la tesi di oggi:** l'apprendimento statistico è machine learning a tutti gli effetti, ed è la base concettuale da cui discendono anche i modelli più avanzati, fino agli LLM.
+**la tesi di oggi:** l'apprendimento statistico è machine learning a tutti gli effetti, ed è la base da cui discendono anche i modelli più avanzati, fino agli LLM.
 :::
+:::
+
+::: {.column width="44%"}
+![](img/effetto_gregge_e_la_bolla_delle_dot_com.png){width="100%" fig-alt="Indice NASDAQ durante la bolla delle dot-com: l'effetto gregge e l'hype"}
+:::
+
+::::
 
 ## "AI tradizionale": una storia lunga due secoli {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
-![](assets/linea-tempo.svg){width="96%" fig-alt="Linea del tempo dello statistical learning, dai minimi quadrati del 1805 al deep learning di oggi"}
+![](assets/linea-tempo.svg){width="100%" fig-alt="Linea del tempo dello statistical learning, dai minimi quadrati del 1805 al deep learning di oggi"}
 
 - Non è una moda recente: i minimi quadrati nascono per l'astronomia a inizio Ottocento;
 - ogni epoca ha aggiunto un mattone, fino alle reti profonde di oggi;
@@ -38,10 +62,22 @@ l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
 
 ## Perché il termine è fuorviante {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
+:::: {.columns}
+
+::: {.column width="58%"}
 - Il termine nasce per contrapporre i vecchi sistemi simbolici e a regole alle reti neurali;
 - oggi viene usato a sproposito per liquidare regressioni, alberi e SVM come tecnologia minore;
 - ISL lo dice chiaro: lo statistical learning non va visto come una serie di scatole nere;
 - una regressione logistica e una random forest sono lo stesso paradigma di una rete: imparare dai dati.
+:::
+
+::: {.column width="42%"}
+![](img/geroglifici_come_esempio_di_ai_simbolica.png){width="100%" fig-alt="Geroglifici egizi, metafora dell'AI simbolica a regole"}
+
+La vera «AI tradizionale»: i sistemi simbolici a regole.
+:::
+
+::::
 
 ## La mappa del campo {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Apertura"}
 
@@ -88,18 +124,24 @@ l'etichetta suggerisce qualcosa di vecchio, superato, di serie B.
 
 ## Blocco 1 · Dal modello statistico allo statistical learning {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
 
-::: {.divider-sub}
-ISL, capitoli 1 e 2 · frame di Torelli
-:::
-
 ## Cosa chiedevamo alla statistica {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
+:::: {.columns}
+
+::: {.column width="58%"}
 esempi classici, in ambito aziendale e assicurativo, che vengono prima del machine learning:
 
 - valutare la probabilità che un cliente compri un prodotto viste le sue caratteristiche;
 - classificare i clienti in fedeli e infedeli sulla base della loro storia;
 - prevedere la spesa aggiuntiva per l'upgrade di un prodotto o servizio;
 - prevedere il numero di sinistri di una classe di assicurati, o stanare le frodi.
+:::
+
+::: {.column width="42%"}
+![](img/corsia_scaffali.jpg){width="100%" fig-alt="Corsia di un punto vendita con scaffali"}
+:::
+
+::::
 
 ::: {.fragment}
 in tutti i casi: dai dati a una risposta quantitativa su qualcosa che non osserviamo ancora.
@@ -107,10 +149,20 @@ in tutti i casi: dai dati a una risposta quantitativa su qualcosa che non osserv
 
 ## Lo schema comune: risposta e predittori {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
+:::: {.columns}
+
+::: {.column width="60%"}
 - C'è una **risposta** $Y$, il fenomeno di interesse, ad esempio le vendite di un prodotto;
 - ci sono dei **predittori** $X_1, X_2, \dots, X_p$, le informazioni note;
 - esempio ISL, dataset Advertising: $Y$ sono le vendite, $X_1, X_2, X_3$ i budget su TV, radio, volantino;
 - la risposta ha tanti nomi (output, target, variabile dipendente), i predittori altrettanti (input, feature, covariate).
+:::
+
+::: {.column width="40%"}
+![](img/scontrino.jpeg){width="90%" fig-alt="Uno scontrino: voci e importi sono dati da cui imparare"}
+:::
+
+::::
 
 ## L'equazione di tutto: $Y = f(X) + \varepsilon$ {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
@@ -149,10 +201,20 @@ $$
 
 ## Primo scopo: predizione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
+:::: {.columns}
+
+::: {.column width="64%"}
 - A volte abbiamo gli input $X$ e ci serve solo una buona previsione di $Y$;
 - $\hat f$ può essere una scatola nera: non importa la sua forma, conta che $\hat f(X)$ sia vicino a $Y$;
 - esempio ISL: una campagna di marketing diretto, vogliamo solo prevedere chi risponde;
 - esempio Conad: quanto spenderà questo cliente nei prossimi dodici mesi?.
+:::
+
+::: {.column width="36%"}
+![](img/volantino_offerte.jpg){width="76%" fig-alt="Volantino offerte: target di una campagna promozionale"}
+:::
+
+::::
 
 ## Secondo scopo: interpretazione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
@@ -235,16 +297,30 @@ $$ f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p $$
 
 ## Regressione vs classificazione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
 
+:::: {.columns}
+
+::: {.column width="58%"}
 - Dipende dalla natura della risposta $Y$;
 - **regressione:** $Y$ quantitativa, ad esempio le vendite o il valore di un danno;
 - **classificazione:** $Y$ categoriale, ad esempio cliente fedele o infedele, frode o non frode;
 - la logistica, nonostante il nome, è un metodo di classificazione perché stima una probabilità.
+:::
+
+::: {.column width="42%"}
+![](img/churn_carta_fedelta.png){width="100%" fig-alt="Carte fedeltà Conad: il churn è un problema di classificazione"}
+
+Fedele o infedele? Un classico problema di classificazione.
+:::
+
+::::
+
+## Si sceglie sempre per task {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Dal modello allo statistical learning"}
+
+nella data science non si parte dal modello, ma dal **task**: cosa stiamo cercando? la risposta guida tecniche e metodologia. tre domande, in ordine:
+
+![](assets/scelta-per-task.svg){width="58%" fig-alt="Diagramma di flusso: dall'obiettivo del progetto al tipo di compito"}
 
 ## Blocco 2 · Il cuore: accuratezza e bias-varianza {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
-
-::: {.divider-sub}
-ISL, capitoli 2 e 5 · la slide-madre del corso
-:::
 
 ## Allenare l'algoritmo e misurare l'errore {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Il cuore: bias-varianza"}
 
@@ -436,10 +512,6 @@ a cosa serve principalmente la k-fold cross-validation?
 
 ## Blocco 3 · Le famiglie di modelli {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
 
-::: {.divider-sub}
-ISL, capitoli 3, 4, 6, 7, 8, 9 · una panoramica ragionata
-:::
-
 ## Non un catalogo, ma una mappa {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
 - Non serve memorizzare ogni metodo, serve capire dove si colloca;
@@ -449,9 +521,10 @@ ISL, capitoli 3, 4, 6, 7, 8, 9 · una panoramica ragionata
 
 ## La baseline interpretabile: regressione lineare {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
-$$ \hat y = \hat\beta_0 + \hat\beta_1 x_1 + \dots + \hat\beta_p x_p $$
+$$ \hat y = \hat\beta_0 + \hat\beta_1 x_1 + \dots + \hat\beta_p x_p
+\qquad \min_{\beta}\ \text{RSS} = \sum_{i=1}^{n}\big(y_i - \hat y_i\big)^2 $$
 
-- I coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui;
+- I coefficienti si stimano con i minimi quadrati, minimizzando la somma dei quadrati dei residui (RSS);
 - ogni $\hat\beta_j$ dice quanto pesa quel predittore, a parità degli altri;
 - esempio ISL: vendite in funzione dei budget TV, radio, volantino;
 - semplice, veloce, interpretabile: il punto di partenza, non il nemico.
@@ -617,28 +690,23 @@ $$ y = \beta_0 + f_1(x_1) + f_2(x_2) + \dots + f_p(x_p) + \varepsilon $$
 - il trucco del kernel permette confini non lineari senza costruire nuove feature a mano;
 - efficace anche quando i predittori sono molti.
 
-## Tutto sullo stesso piano {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
+## Tutto sullo stesso piano {.smaller footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Le famiglie di modelli"}
 
-:::: {.columns}
+| Famiglia | Interpretabilità | Flessibilità | Quando conviene |
+|---|---|---|---|
+| Lineare, logistica | alta | bassa | baseline, quando serve spiegare |
+| Ridge, lasso | alta | bassa-media | tanti predittori, selezione |
+| GAM, spline | media | media | non linearità da leggere |
+| Alberi | media | media | regole semplici e chiare |
+| Random forest, boosting | bassa | alta | massima accuratezza |
+| SVM | bassa | media-alta | confini netti, alta dimensione |
+| Reti profonde | molto bassa | altissima | tanti dati, immagini, testo |
 
-::: {.column width="42%"}
-- Nessun modello è il migliore in assoluto, è il "no free lunch";
-- a sinistra gli interpretabili, a destra i flessibili;
-- più flessibilità non è sempre meglio: dipende da dati e rumore;
-- la scelta è un compromesso guidato dall'obiettivo.
-:::
+: {tbl-colwidths="[26,21,20,33]"}
 
-::: {.column width="58%"}
-![](assets/flessibilita-interpretabilita.svg){width="100%" fig-alt="Piano flessibilità-interpretabilità con tutti i metodi posizionati"}
-:::
-
-::::
+nessun modello vince sempre (il "no free lunch"): la scelta è guidata dal task.
 
 ## Blocco 4 · Reti neurali e la big picture {.divider background-image="assets/title-bg-bokeh.jpeg" background-size="cover" background-position="center" background-color="#002060"}
-
-::: {.divider-sub}
-ISL, capitolo 10 · dove va a finire il continuum
-:::
 
 ## Il neurone: una regressione vestita a festa {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
@@ -649,12 +717,19 @@ $$ a = g\!\left(w_0 + \sum_{j=1}^{p} w_j x_j\right) $$
 - di per sé è poco più di una regressione;
 - la potenza nasce quando se ne impilano tanti.
 
+## Dal dettaglio al macroscopico {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+- Fino agli alberi abbiamo aperto $f$ nel dettaglio, seguendo ISL: pochi parametri, formule, interpretazione;
+- nei modelli profondi $f$ ha milioni di parametri, non la apriamo pezzo per pezzo;
+- cambiamo zoom: ragioniamo a livello di **architettura**, cioè come sono collegati i blocchi;
+- ma i principi restano quelli del mattino: $Y = f(X)$, training e test, overfitting, regolarizzazione.
+
 ## Reti profonde: cosa cambia davvero {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
 - Impilando strati la rete costruisce rappresentazioni sempre più astratte dei dati;
-- non scegliamo noi le feature: le impara la rete, è il feature learning;
-- è una $f$ estremamente flessibile, in fondo è ancora $Y = f(X)$;
-- più flessibilità porta più potenza ma anche più rischio di overfitting.
+- non scegliamo noi le feature: le impara la rete, è il **feature learning**;
+- è una $f$ estremamente flessibile, ma in fondo è ancora $Y = f(X)$;
+- più capacità porta più potenza e più rischio di overfitting: servono molti più dati.
 
 ## È ancora apprendimento statistico {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
@@ -677,12 +752,108 @@ una rete neurale profonda è governata dal trade-off bias-varianza?
 :::
 :::
 
+## Le architetture, per tipo di dato {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+a ogni tipo di dato la sua architettura; sotto restano sempre neuroni e $Y = f(X)$:
+
+| Tipo di dato | Architettura | Idea chiave |
+|---|---|---|
+| Immagini | CNN | convoluzioni: filtri che scorrono e colgono pattern locali |
+| Sequenze, testo | RNN, LSTM | memoria: lo stato porta avanti il contesto |
+| Testo su larga scala | Transformer | attenzione: ogni elemento guarda tutti gli altri |
+| Generazione | GAN | due reti in competizione: generatore contro discriminatore |
+
+: {tbl-colwidths="[24,22,54]"}
+
+## CNN: vedere le immagini {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+:::: {.columns}
+
+::: {.column width="44%"}
+- I filtri (convoluzioni) scorrono sull'immagine e colgono pattern locali: bordi, texture, forme;
+- gli strati successivi combinano i pattern semplici in concetti via via più astratti;
+- alla fine una parte completamente connessa classifica;
+- è il feature learning applicato alla visione.
+:::
+
+::: {.column width="56%"}
+![](img/cnn_classification.png){width="100%" fig-alt="Schema di una CNN che classifica una cifra: estrazione delle feature e classificazione"}
+:::
+
+::::
+
+## RNN e LSTM: ricordare le sequenze {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+:::: {.columns}
+
+::: {.column width="42%"}
+- Per dati in sequenza (testo, serie storiche) serve **memoria**;
+- la stessa cella si ripete nel tempo e passa avanti lo stato $h_t$;
+- le LSTM aggiungono delle "porte" per ricordare anche a lungo;
+- è la base storica del linguaggio, prima dei transformer.
+:::
+
+::: {.column width="58%"}
+![](assets/architettura-rnn.svg){width="100%" fig-alt="RNN srotolata nel tempo: input, stato nascosto con memoria, output"}
+:::
+
+::::
+
+## Transformer: l'attenzione {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+:::: {.columns}
+
+::: {.column width="48%"}
+- Niente ricorrenza: ogni elemento guarda **tutti** gli altri tramite l'**attenzione**;
+- coglie relazioni a lungo raggio ed è molto parallelizzabile;
+- impilando tanti blocchi e scalando dati e parametri si arriva agli **LLM**;
+- è l'architettura dietro gli assistenti come ChatGPT.
+:::
+
+::: {.column width="52%"}
+![](assets/architettura-transformer.svg){width="62%" fig-alt="Blocco transformer: auto-attenzione, normalizzazione, rete feed-forward"}
+:::
+
+::::
+
+## GAN: generare dati nuovi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+:::: {.columns}
+
+::: {.column width="52%"}
+- Due reti in competizione: il **generatore** crea dati finti, il **discriminatore** prova a smascherarli;
+- migliorano a vicenda, finché i dati finti diventano credibili;
+- servono a generare immagini, audio, dati sintetici.
+
+![](img/opera_arte_generata.png){width="56%" fig-alt="Immagine generata da una rete generativa"}
+:::
+
+::: {.column width="48%"}
+![](assets/architettura-gan.svg){width="100%" fig-alt="Schema GAN: generatore e discriminatore in competizione"}
+:::
+
+::::
+
+## Statistical learning vs deep learning {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
+
+| | Statistical learning | Deep learning |
+|---|---|---|
+| Dove guardiamo | dentro $f$: parametri, formule | l'architettura |
+| Le feature | le scegliamo noi | le impara la rete |
+| Dati richiesti | anche pochi | molti, spesso moltissimi |
+| Interpretabilità | medio-alta | bassa |
+| Dato tipico | tabellare | immagini, testo, audio |
+
+: {tbl-colwidths="[22,39,39]"}
+
+stesso paradigma, scala e zoom diversi.
+
 ## La mappa genealogica dei modelli profondi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
 ![](assets/genealogia-modelli.svg){width="90%" fig-alt="Genealogia: dal percettrone alla rete profonda, poi CNN, RNN e LSTM, GAN, fino a transformer e LLM"}
 
 - CNN per le immagini, RNN e LSTM per le sequenze, GAN per la generazione;
-- i transformer, basati sull'attenzione, sono la base dei grandi modelli linguistici.
+- i transformer, basati sull'attenzione, sono la base dei grandi modelli linguistici (LLM).
 
 ## Transformer, LLM e chiusura della tesi {footer="Orso Peruzzi · Apprendimento statistico (CONAD Nord Ovest) · Reti neurali e big picture"}
 
@@ -757,3 +928,5 @@ i dati sono caricati via URL dal repo, quindi i notebook girano anche a casa.
 ::: {.divider-sub}
 Orso Peruzzi · Data Scientist, IFAB · domande?
 :::
+
+![](img/logo.png){width="24%" fig-alt="Logo Conad Nord Ovest"}

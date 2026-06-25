@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-06-25T11:29:36.455628</dc:date>
+    <dc:date>2026-06-25T17:51:46.576130</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -41,7 +41,7 @@ C 31.458888 93.338808 14.07456 135.308289 14.07456 179.064
 C 14.07456 222.819711 31.458888 264.789192 62.398848 295.729152 
 C 93.338808 326.669112 135.308289 344.05344 179.064 344.05344 
 z
-" clip-path="url(#pfe15b7a034)" style="fill: #8fd2e9; opacity: 0.35; stroke: #414f69; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pe8a8dc7b85)" style="fill: #8fd2e9; opacity: 0.35; stroke: #414f69; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 179.064 319.99248 
@@ -54,7 +54,7 @@ C 77.585486 147.626171 65.63376 176.480189 65.63376 206.56224
 C 65.63376 236.644291 77.585486 265.498309 98.856708 286.769532 
 C 120.127931 308.040754 148.981949 319.99248 179.064 319.99248 
 z
-" clip-path="url(#pfe15b7a034)" style="fill: #00adcf; opacity: 0.55; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pe8a8dc7b85)" style="fill: #00adcf; opacity: 0.55; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 179.064 292.49424 
@@ -67,7 +67,7 @@ C 126.78719 203.699475 120.63024 218.563666 120.63024 234.06048
 C 120.63024 249.557294 126.78719 264.421485 137.745092 275.379388 
 C 148.702995 286.33729 163.567186 292.49424 179.064 292.49424 
 z
-" clip-path="url(#pfe15b7a034)" style="fill: #002060; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pe8a8dc7b85)" style="fill: #002060; stroke: #002060; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 19.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #002060" x="179.064" y="36.565569" transform="rotate(-0 179.064 36.565569)">Intelligenza artificiale</text>
@@ -87,7 +87,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pfe15b7a034">
+  <clipPath id="pe8a8dc7b85">
    <rect x="7.2" y="7.2" width="343.728" height="343.728"/>
   </clipPath>
  </defs>
