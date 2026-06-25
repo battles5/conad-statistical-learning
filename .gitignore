@@ -1,6 +1,9 @@
 /_site/
 /.quarto/
 .DS_Store
+
+# discorso personale del docente: solo locale, non pubblicare
+discorso_per_slide.md
 __pycache__/
 .ipynb_checkpoints/
 .Rproj.user/
