@@ -80,3 +80,39 @@ python genera_dataset.py
 ```
 
 Il seed e' fisso (`SEED = 42`): la rigenerazione produce lo stesso file.
+
+---
+
+## Dataset canonici ISL
+
+Oltre al dataset retail sintetico, la cartella contiene alcuni dataset canonici di
+*Introduction to Statistical Learning* (ISL), usati nei notebook del pomeriggio. Sono i
+file originali del libro, in unita' di misura americane; i notebook li convertono al volo
+nel sistema internazionale dove serve (vedi nota sotto).
+
+| file | usato in | descrizione |
+|---|---|---|
+| `Auto.csv` | NB0, NB1 | consumo e caratteristiche di 392 automobili |
+| `Default.csv` | NB2, NB4 | insolvenza su carta di credito (10.000 clienti) |
+| `Carseats.csv` | NB3 | vendite di seggiolini auto in 400 negozi |
+| `Hitters.csv` | NB2 | stipendi di giocatori di baseball (ridge e lasso) |
+| `Advertising.csv` | disponibile | spesa pubblicitaria e vendite |
+| `Boston.csv` | disponibile | valori immobiliari a Boston |
+
+### conversione delle unita' (sistema internazionale)
+
+i dataset ISL usano unita' americane. nei notebook NB0 e NB1 i dati di `Auto` sono
+convertiti al volo nel sistema internazionale, piu' familiare in Italia:
+
+- consumo: miglia per gallone -> litri/100 km (`235.215 / mpg`);
+- potenza: cavalli (hp) -> kilowatt (`* 0.7457`);
+- peso: libbre -> kg (`* 0.453592`);
+- cilindrata: pollici cubi -> litri (`* 0.0163871`).
+
+gli importi monetari dei dataset ISL (`Default`, `Hitters`) restano in dollari: sono valuta,
+non unita' di misura. il dataset retail Conad e' invece interamente in euro.
+
+### crediti
+
+dataset tratti da *An Introduction to Statistical Learning* (James, Witten, Hastie,
+Tibshirani; edizione Python). usati a scopo didattico.

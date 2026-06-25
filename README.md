@@ -46,11 +46,10 @@ conad-statistical-learning/
 ├── data/
 │   ├── genera_dataset.py       genera il dataset retail sintetico (seed fisso)
 │   ├── conad_retail.csv        dataset retail sintetico (10.000 clienti)
-│   ├── Auto.csv, Default.csv, Carseats.csv   dataset canonici ISL
+│   ├── Auto.csv, Default.csv, Carseats.csv, Advertising.csv, Boston.csv, Hitters.csv   dataset canonici ISL
 │   └── README.md               dizionario dei dati
 ├── notebooks/
-│   ├── genera_notebooks.py     genera i .ipynb
-│   └── NB0..NB4 .ipynb         notebook Colab del pomeriggio
+│   └── NB0..NB4 .ipynb         notebook Colab del pomeriggio (editati direttamente)
 ├── docs/00_progettazione_corso.md   documento di progettazione (non pubblicato)
 └── .github/workflows/publish.yml    render e deploy su GitHub Pages
 ```
@@ -70,7 +69,6 @@ Per rigenerare figure, dataset o notebook:
 python assets/genera_figure.py
 python assets/genera_figure_2.py
 python data/genera_dataset.py
-python notebooks/genera_notebooks.py
 ```
 
 ## Pubblicazione
