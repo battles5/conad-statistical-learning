@@ -1,27 +1,32 @@
 # -*- coding: utf-8 -*-
 """
-Generatore del dataset sintetico per il caso "fontanelli" (erogatori d'acqua).
+Generatore del dataset sintetico per il caso "fontanelli" (erogatori d'acqua) - v2.
 
-Scenario didattico (NB5): un'insegna vuole stimare i litri d'acqua che i fontanelli
-erogheranno se installati nei suoi negozi, ma ne ha installati solo in 3 (i pilota).
-Gli altri 500 sono da stimare.
+Scenario didattico (NB5): un'insegna del Nord Ovest vuole stimare i litri d'acqua che i
+fontanelli erogheranno se installati nei suoi negozi, ma ne ha installati solo in 3 (i
+pilota). Gli altri 500 sono da stimare.
+
+Copertura geografica: 6 regioni del Nord Ovest, dalla Valle d'Aosta alla Sardegna.
+I 3 negozi pilota sono uno in Liguria, uno a Prato (Toscana) e uno nel Lazio.
 
 Il file contiene la verita' sintetica (`litri_erogati_sett`) per TUTTI i negozi, cosi'
-nel notebook possiamo "svelare" il vero totale e giudicare i diversi approcci. La
-colonna `misurato` vale 1 solo per i 3 negozi pilota: e' l'unico dato che, nella realta',
-l'azienda possiede davvero.
+nel notebook possiamo "svelare" il vero totale e giudicare i diversi approcci. La colonna
+`misurato` vale 1 solo per i 3 negozi pilota.
 
-Variabili (richieste dal cliente):
-  - tipologia: prossimita' o attrazione (tipo di punto vendita);
-  - visite_giorno: frequenza di visita (afflusso medio giornaliero);
-  - acqua_bottiglia_litri_sett: consumi di acqua in bottiglia (proxy della domanda);
-  - temp_media_zona: posizione geografica resa come clima medio della zona.
+Variabili:
+  - regione: una delle 6 regioni del Nord Ovest (geografia, da trattare);
+  - tipologia: prossimita' o attrazione;
+  - visite_giorno: afflusso medio giornaliero (le attrazioni ne hanno molte di piu');
+  - superficie_mq: dimensione del punto vendita;
+  - presenza_area_ristoro: 1 se c'e' bar/ristoro (piu' sosta -> piu' consumo d'acqua);
+  - temp_media_zona: lettura locale del clima (proxy RUMOROSO);
+  - giorni_caldi_anno: giorni caldi all'anno della zona (clima piu' affidabile, da regione);
+  - acqua_bottiglia_litri_sett: consumi di acqua in bottiglia (proxy della domanda).
 
 Uso:
     python genera_fontanelli.py
 Produce: fontanelli_negozi.csv (503 righe: 3 pilota + 500 da stimare).
-
-Riproducibile: seed fisso. Nessuna dipendenza oltre numpy e pandas.
+Riproducibile: seed fisso. Solo numpy e pandas.
 """
 from pathlib import Path
 
@@ -29,90 +34,114 @@ import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).parent
-N_TARGET = 500       # negozi da stimare
-N_PILOTA = 3         # negozi gia' dotati di fontanello (misurati)
+N_TARGET = 500
+N_PILOTA = 3
 N = N_TARGET + N_PILOTA
 SEED = 7
 rng = np.random.default_rng(SEED)
 
 
+def sigmoid(x):
+    return 1.0 / (1.0 + np.exp(-x))
+
+
+# 6 regioni del Nord Ovest e loro peso (densita' di negozi indicativa)
+REGIONI = ["Valle d'Aosta", "Piemonte", "Liguria", "Toscana", "Lazio", "Sardegna"]
+PESO = [0.05, 0.13, 0.18, 0.34, 0.16, 0.14]
+# clima medio indicativo per regione (gradi C): guida giorni caldi ed erogato
+TEMP_BASE = {
+    "Valle d'Aosta": 12.5, "Piemonte": 14.5, "Liguria": 16.5,
+    "Toscana": 16.0, "Lazio": 17.5, "Sardegna": 18.5,
+}
+
+
 def genera():
     # ------------------------------------------------------------------
-    # 1) tipologia del punto vendita
-    #    attrazione = grande, molto frequentato; prossimita' = di quartiere
+    # 1) geografia e tipologia (con i 3 pilota forzati)
     # ------------------------------------------------------------------
-    tipologia = rng.choice(["prossimita", "attrazione"], size=N, p=[0.72, 0.28])
+    regione = rng.choice(REGIONI, size=N, p=PESO).astype(object)
+    tipologia = rng.choice(["prossimita", "attrazione"], size=N, p=[0.72, 0.28]).astype(object)
+
+    # i 3 pilota: uno a Prato (Toscana), uno in Liguria, uno nel Lazio
+    regione[0], tipologia[0] = "Toscana", "attrazione"     # Prato
+    regione[1], tipologia[1] = "Liguria", "prossimita"     # es. Savona
+    regione[2], tipologia[2] = "Lazio", "prossimita"       # es. Latina
     attr = (tipologia == "attrazione")
 
     # ------------------------------------------------------------------
-    # 2) frequenza di visita (afflusso giornaliero)
+    # 2) clima: dalla regione al numero di giorni caldi (driver pulito);
+    #    la "temperatura media" misurata in zona e' invece RUMOROSA (proxy debole)
     # ------------------------------------------------------------------
-    base = np.where(attr, 1150.0, 380.0)
-    visite_giorno = np.clip(rng.normal(base, base * 0.25), 60, None).round().astype(int)
+    t_base = np.array([TEMP_BASE[r] for r in regione])
+    giorni_caldi_anno = np.clip((t_base - 11.0) * 9.0 + rng.normal(0, 6, N), 5, 120).round().astype(int)
+    temp_media_zona = (t_base + rng.normal(0, 2.0, N)).round(1)
 
     # ------------------------------------------------------------------
-    # 3) posizione geografica -> clima medio della zona (gradi C)
-    #    zone piu' calde -> piu' uso del fontanello
+    # 3) afflusso (le attrazioni ne hanno molte di piu', media alzata) e dimensione
     # ------------------------------------------------------------------
-    temp_media_zona = np.clip(rng.normal(17.0, 2.3, N), 12, 24).round(1)
+    base_v = np.where(attr, 1700.0, 380.0)
+    visite_giorno = np.clip(rng.normal(base_v, base_v * 0.25), 60, None).round().astype(int)
+
+    superficie_mq = np.clip(
+        np.where(attr, rng.normal(2400, 700, N), rng.normal(520, 180, N)), 120, None
+    ).round().astype(int)
+
+    # area ristoro: piu' probabile nei negozi grandi / attrazione
+    p_ristoro = sigmoid(-1.2 + 1.7 * attr + 0.0006 * (superficie_mq - 500))
+    presenza_area_ristoro = (rng.random(N) < p_ristoro).astype(int)
 
     # ------------------------------------------------------------------
-    # 4) consumi di acqua in bottiglia (litri/settimana):
-    #    correlati alle visite e al caldo, con rumore. e' un PROXY della
-    #    domanda d'acqua, non la causa diretta dell'erogato.
+    # 4) consumi di acqua in bottiglia (proxy della domanda, correlato a visite e caldo)
     # ------------------------------------------------------------------
     acqua_bottiglia_litri_sett = np.clip(
-        visite_giorno * 7 * (0.012 + 0.0018 * (temp_media_zona - 14))
+        visite_giorno * 7 * (0.012 + 0.0016 * (t_base - 13))
         * np.exp(rng.normal(0, 0.22, N)),
         5, None,
     ).round(1)
 
     # ------------------------------------------------------------------
-    # 5) TARGET vero: litri erogati dal fontanello a settimana.
-    #    driver principali: afflusso x clima; piccolo effetto della tipologia
-    #    (nei negozi "attrazione" si sosta di piu'); rumore moltiplicativo
-    #    = errore irriducibile.
+    # 5) TARGET vero: litri erogati a settimana.
+    #    driver = afflusso x tasso; il tasso cresce col caldo (giorni_caldi),
+    #    con l'area ristoro (piu' sosta) e un po' con la tipologia attrazione.
+    #    rumore moltiplicativo = errore irriducibile.
     # ------------------------------------------------------------------
-    tasso_per_visita = (
-        0.022
-        + 0.0045 * (temp_media_zona - 14)   # piu' caldo -> piu' acqua
-        + np.where(attr, 0.006, 0.0)         # attrazione -> sosta -> piu' acqua
+    tasso = (
+        0.024
+        + 0.00040 * (giorni_caldi_anno - 30)
+        + 0.006 * attr
+        + 0.010 * presenza_area_ristoro
     )
+    tasso = np.clip(tasso, 0.004, None)
     litri_erogati_sett = np.clip(
-        visite_giorno * 7 * tasso_per_visita * np.exp(rng.normal(0, 0.18, N)),
+        visite_giorno * 7 * tasso * np.exp(rng.normal(0, 0.16, N)),
         0, None,
     ).round(1)
 
     df = pd.DataFrame({
         "negozio_id": [f"NEG{i + 1:03d}" for i in range(N)],
+        "regione": regione,
         "tipologia": tipologia,
         "visite_giorno": visite_giorno,
-        "acqua_bottiglia_litri_sett": acqua_bottiglia_litri_sett,
+        "superficie_mq": superficie_mq,
+        "presenza_area_ristoro": presenza_area_ristoro,
         "temp_media_zona": temp_media_zona,
+        "giorni_caldi_anno": giorni_caldi_anno,
+        "acqua_bottiglia_litri_sett": acqua_bottiglia_litri_sett,
         "litri_erogati_sett": litri_erogati_sett,
     })
 
-    # ------------------------------------------------------------------
-    # 6) i 3 negozi pilota (gli unici "misurati"): scelti diversi tra loro
-    #    (un'attrazione e due prossimita', clima vario), come capita davvero
-    # ------------------------------------------------------------------
-    idx_attr = df.index[df["tipologia"] == "attrazione"]
-    idx_pross = df.index[df["tipologia"] == "prossimita"]
-    pilota = [
-        int(rng.choice(idx_attr)),
-        int(rng.choice(idx_pross)),
-        int(rng.choice(idx_pross)),
-    ]
+    # i 3 pilota sono gli indici 0, 1, 2 (gia' in cima)
     df["misurato"] = 0
-    df.loc[pilota, "misurato"] = 1
-
-    # mettiamo i 3 pilota in cima, per chiarezza
-    df = pd.concat([df[df["misurato"] == 1], df[df["misurato"] == 0]]).reset_index(drop=True)
+    df.loc[[0, 1, 2], "misurato"] = 1
 
     out = HERE / "fontanelli_negozi.csv"
     df.to_csv(out, index=False)
     print("scritto", out.name, "-", len(df), "negozi,", int(df["misurato"].sum()), "misurati")
-    print("totale vero litri/sett (tutti):", round(df["litri_erogati_sett"].sum(), 1))
+    print("regioni:", df["regione"].value_counts().to_dict())
+    print("visite medie - attrazione:", round(df.loc[df.tipologia == 'attrazione', 'visite_giorno'].mean()),
+          "| prossimita:", round(df.loc[df.tipologia == 'prossimita', 'visite_giorno'].mean()))
+    print("totale vero litri/sett (500 da stimare):",
+          round(df.loc[df.misurato == 0, "litri_erogati_sett"].sum(), 1))
 
 
 if __name__ == "__main__":
