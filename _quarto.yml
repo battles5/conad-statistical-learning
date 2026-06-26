@@ -9,6 +9,7 @@ project:
     - data/Default.csv
     - data/Carseats.csv
     - data/Hitters.csv
+    - data/fontanelli_negozi.csv
 
 lang: it
 

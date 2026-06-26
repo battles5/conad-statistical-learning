@@ -20,15 +20,16 @@ Si aprono direttamente in Colab, senza installare nulla:
 - [NB2 · Classificazione, regolarizzazione e CV](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB2_classificazione_regolarizzazione.ipynb)
 - [NB3 · Ensemble e caso retail Conad](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB3_ensemble_caso_retail.ipynb)
 - [NB4 · Demo reti neurali](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB4_reti_neurali.ipynb)
+- [NB5 · Stima dei volumi, caso fontanelli](https://colab.research.google.com/github/battles5/conad-statistical-learning/blob/main/notebooks/NB5_caso_fontanelli.ipynb)
 
 ## Cosa contiene
 
 - **deck del mattino** (`index.qmd`, ~65 slide): dalla provocazione sull'"AI tradizionale" al trade-off
   bias-varianza, le famiglie di modelli e le reti neurali; formule in LaTeX, figure in stile ISL/Torelli,
   quiz a rivelazione, esempi ISL (Advertising, Income, Wage, Default) e frame di Torelli;
-- **notebook del pomeriggio** (`notebooks/NB0-NB4`): code-along guidato su Colab, con manopole e celle bonus;
-- **dati** (`data/`): dataset canonici ISL (Auto, Default, Carseats) più un dataset retail sintetico stile
-  Conad (churn e previsione vendite), caricati nei notebook via URL.
+- **notebook del pomeriggio** (`notebooks/NB0-NB5`): code-along guidato su Colab, con manopole e celle bonus;
+- **dati** (`data/`): dataset canonici ISL (Auto, Default, Carseats, Hitters) più due dataset sintetici stile
+  Conad (retail per churn e vendite; fontanelli per la stima dei volumi), caricati nei notebook via URL.
 
 ## Struttura
 
@@ -45,12 +46,13 @@ conad-statistical-learning/
 │   └── *.svg                   18 figure on-brand
 ├── data/
 │   ├── genera_dataset.py       genera il dataset retail sintetico (seed fisso)
+│   ├── genera_fontanelli.py    genera il dataset sintetico dei fontanelli (seed fisso)
 │   ├── conad_retail.csv        dataset retail sintetico (10.000 clienti)
+│   ├── fontanelli_negozi.csv   dataset sintetico fontanelli (503 negozi, 3 misurati)
 │   ├── Auto.csv, Default.csv, Carseats.csv, Hitters.csv   dataset canonici ISL
 │   └── README.md               dizionario dei dati
 ├── notebooks/
-│   └── NB0..NB4 .ipynb         notebook Colab del pomeriggio (editati direttamente)
-├── docs/00_progettazione_corso.md   documento di progettazione (non pubblicato)
+│   └── NB0..NB5 .ipynb         notebook Colab del pomeriggio (editati direttamente)
 └── .github/workflows/publish.yml    render e deploy su GitHub Pages
 ```
 
